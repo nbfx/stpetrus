@@ -1,0 +1,97 @@
+.category {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    number: 3;
+    //justify-content: space-between;
+
+    padding-bottom: 50px;
+
+    &__wrapper {
+        display: flex;
+        justify-content: flex-end;
+        padding-left: 280px;
+
+        text-align: right;
+    }
+    &__item {
+        height: 320px;
+        width: 28%;
+        margin-bottom: 50px;
+        margin-right: 5%;
+
+        background: #ff0000;
+        text-align: left;
+
+        box-shadow: 0 0 15px rgba(0,0,0,.6);
+        text-decoration: none;
+    }
+    &__title,
+    &__size {
+        font-family: "LibelSuitRg", Arial, sans-serif;
+        color: #ffffff;
+        padding-left: 30px;
+        width: 50%;
+    }
+    &__title {
+        margin-top: 55%;
+        font-size: 3rem;
+        padding-bottom: 25px;
+        text-decoration: none;
+    }
+    &__size {
+        font-size: 1.8rem;
+    }
+    &__img {
+        height: 320px;
+        overflow: hidden;
+        margin-bottom: 60px;
+    }
+    &__dish,
+    &__description {
+        display: block;
+        text-align: left;
+    }
+    &__dish {
+        font: 400 1.8rem/1.2 "LibelSuitRg", Arial, sans-serif;
+    }
+    &__description {
+        font: 400 1.2rem/1.2 "LibelSuitRg", Arial, sans-serif;
+        padding-bottom: 12px;
+    }
+}
+.menuGroup {
+    .category {
+        max-width: 960px;
+        flex-direction: column;
+        &__wrapper {
+            justify-content: flex-start;
+        }
+    }
+}
+.wineGroup {
+    .category {
+        flex-direction: column;
+
+        img {
+            max-width: 100%;
+        }
+        &__title {
+            text-transform: uppercase;
+        }
+    }
+}
+.wine {
+    .category {
+        &__title {
+            text-transform: uppercase;
+        }
+    }
+}
+.cocktailGroup,
+.spiritGroup {
+    .category {
+        flex-direction: column;
+    }
+
+}

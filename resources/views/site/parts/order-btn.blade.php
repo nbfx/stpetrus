@@ -1,0 +1,1 @@
+<a class="order-btn" href="#">заказать столик</a>

@@ -1,0 +1,156 @@
+html, body {
+    display: block;
+    position: relative;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+
+    font-size: 10px;
+    background: #27282a;
+}
+
+.container {
+    display: none;
+    position: relative;
+    margin: 0 70px 70px;
+    background: #ffffff;
+
+    transition: all 500ms;
+
+    &__main-img {
+        display: block;
+        position: relative;
+        margin-bottom: 30px;
+        background-color: transparent;
+
+        img {
+            width: 100%;
+        }
+        &_what {
+            background: url("/img/what-header.jpg") no-repeat;
+            background-size: cover;
+        }
+        &_who {
+            background: url("/img/team-header.jpg") no-repeat;
+            background-size: cover;
+        }
+        &_history {
+            background: url("/img/history-header.jpg") no-repeat;
+            background-size: cover;
+        }
+        &_events {
+            background: url("/img/events-header.jpg") no-repeat;
+            background-size: cover;
+        }
+        &_menu {
+            background: url("/img/menu-header.jpg") no-repeat;
+            background-size: cover;
+        }
+    }
+    &__main-title {
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 165px;
+        height: 165px;
+
+        transform: translate(-50%, -50%);
+
+        background: #ffffff;
+
+        font: 400 2.4rem/165px "LibelSuitRg", Arial, sans-serif;
+        color: #000000;
+        text-align: center;
+
+        border: 15px solid transparent;
+        box-shadow: 0 0 0 1px #ffffff;
+        background-clip: content-box; /* support: IE9+ */
+
+        cursor: pointer;
+    }
+    &__scroll-btn {
+        display: block;
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
+        background: url("/img/next.jpg") center no-repeat, #ffffff;
+
+        cursor: pointer;
+    }
+
+    &__title {
+        display: block;
+        font: 400 2.4rem/1 "LibelSuitRg", Arial, sans-serif;
+        color: #000000;
+        text-align: center;
+        text-transform: uppercase;
+        padding-bottom: 20px;
+    }
+    &__subtitle {
+        display: block;
+        max-width: 50%;
+        padding-bottom: 70px;
+        margin: 0 auto;
+
+        font: 400 1.4rem/1.2 "LibelSuitRg", Arial, sans-serif;
+        text-align: center;
+        color: #000000;
+    }
+    .listing {
+        display: block;
+        padding-bottom: 50px;
+
+        &__item {
+            display: flex;
+            position: relative;
+            padding-left: 30%;
+            align-items: stretch;
+            width: 70%;
+            border-bottom: 1px solid #8b8b8b;
+        }
+        &__text {
+            width: 50%;
+            padding-right: 10%;
+
+            font-family: "LibelSuitRg", Arial, sans-serif;
+            line-height: 1.2;
+        }
+        &__position {
+            display: block;
+            font-size: 1.4rem;
+
+            padding-top: 20px;
+        }
+        &__name {
+            display: block;
+            font-size: 2.4rem;
+            padding-top: 10px;
+        }
+        &__description {
+            display: block;
+            font-size: 1.4rem;
+            padding: 30px 0;
+        }
+        &__description-title,
+        &__description {
+            font: 400 1.4rem/1.2 "LibelSuitRg", Arial, sans-serif;
+            padding-bottom: 20px;
+        }
+        &__img {
+            width: 50%;
+            height: auto;
+            padding: 0;
+            margin: 0;
+
+            img {
+                max-width: 100%;
+                height: auto;
+                margin-bottom: -2px;
+            }
+        }
+    }
+}

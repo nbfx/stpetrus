@@ -1,0 +1,26 @@
+@import "reset";
+@import "colors";
+@import "btn";
+@import "fonts";
+
+
+// Sections
+@import "layout";
+@import "languages";
+@import "header";
+@import "mainMenu";
+@import "category";
+@import "events";
+
+
+//Pages
+@import "what";
+@import "who";
+@import "where";
+@import "contacts";
+@import "error";
+
+
+
+//MEDIA QUERY
+@import "media";

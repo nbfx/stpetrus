@@ -1,0 +1,107 @@
+.events {
+
+    &__wrapper {
+        display: block;
+        position: relative;
+
+        width: 555px;
+        max-width: 90%;
+
+        padding-top: 60px;
+        padding-left: 30%;
+        text-align: left;
+    }
+    &__img {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+    }
+    &__title,
+    &__subtitle {
+        width: 555px;
+        padding-left: 30%;
+    }
+    &__title {
+        text-align: center;
+    }
+    &__subtitle {
+        display: block;
+        font: 400 1.4rem/1.2 "LibelSuitRg", Arial sans-serif;
+        text-align: left;
+        padding-left: 30%;
+    }
+    &__item {
+        display: block;
+    }
+    &__item-title {
+        font: 400 2.4rem/3.6 "LibelSuitRg", Arial, sans-serif;
+    }
+    &__text {
+        font: 400 1.4rem/1.2 "LibelSuitRg", Arial, sans-serif;
+        padding-bottom: 20px;
+
+        p {
+            padding: 10px 0;
+
+        }
+
+        ol {
+            list-style: decimal;
+            padding-left: 20px;
+        }
+    }
+    &__calendar {
+        display: inline-block;
+        position: absolute;
+        left: 102%;
+        top: 90px;
+
+        .clndr-controls {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+            font-size: 1.5rem;
+            text-transform: capitalize;
+        }
+        .clndr-control-button {
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+        .clndr-elem-wrapper {
+            width: 35%;
+
+            display: flex;
+            justify-content: space-between;
+        }
+        .day-contents {
+            text-align: center;
+        }
+        .day.event {
+            cursor: pointer;
+            background-color: #000;
+            color: #fff;
+        }
+        .day.today:not(.event) {
+            background-color: #d1d1d1;
+            border-bottom: 2px solid #000;
+        }
+    }
+}
+@media(max-width: 1280px){
+    .events__wrapper {
+        padding-top: 25px;
+    }
+    .events__calendar {
+        display: block;
+        position: relative;
+        text-align: center;
+        top: 0;
+        left: auto;
+    }
+    .clndr {
+        display: inline-block;
+    }
+}

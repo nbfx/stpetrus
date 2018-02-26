@@ -1,0 +1,12 @@
+.what {
+    .listing {
+        &__title {
+            font: 400 2.4rem/1 "LibelSuitRg", Arial, sans-serif;
+            padding-bottom: 35px;
+            padding-top: 15%;
+        }
+        &__description {
+            padding-top: 0;
+        }
+    }
+}

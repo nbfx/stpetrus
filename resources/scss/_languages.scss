@@ -1,0 +1,25 @@
+.languages {
+    display: block;
+    padding: 0 0 0 20%;
+    margin: 28px 0;
+
+
+    &__item {
+        display: inline-block;
+        color: $lightGrey;
+        font: 400 1.8rem/1 "LibelSuitRg", Arial, sans-serif;
+
+        &:after {
+            content: '/';
+            display: inline-block;
+            float: right;
+            padding-left: 5px;
+        }
+        &:last-child:after {
+            display: none;
+        }
+        &_selected {
+            color: $darckGrey;
+        }
+    }
+}

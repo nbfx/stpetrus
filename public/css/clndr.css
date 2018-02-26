@@ -1,0 +1,21 @@
+table.clndr-table {
+    font-size: 14px;
+}
+
+table.clndr-table tr {
+    border-bottom: 1px solid #b8b8b8;
+}
+
+table.clndr-table .day-contents {
+    padding: 3px;
+}
+
+table.clndr-table td, table.clndr-table th {
+    padding: 5px;
+}
+
+table.clndr-table tbody td:not(.empty):hover {
+    cursor: pointer;
+    background-color: #000;
+    color: #fff;
+}

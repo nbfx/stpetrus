@@ -1,0 +1,55 @@
+.contacts {
+    &__wrapper {
+        display: flex;
+
+        padding-left: 30%;
+        padding-bottom: 100px;
+    }
+    &__text {
+        width: 50%;
+    }
+    &__title {
+        font: 400 3rem/1 "LibelSuitRg", Arial, sans-serif;
+        padding-bottom: 30px;
+    }
+    &__address {
+        font: 400 1.8em/1 "LibelSuitRg", Arial, sans-serif;
+        padding-bottom: 60px;
+    }
+    &__phone {
+        font: 400 3rem/1.2 "LibelSuitRg", Arial, sans-serif;
+        padding-bottom: 50px;
+    }
+    &__btn {
+        display: block;
+        width: 295px;
+        border-bottom: 1px dashed #000000;
+        padding: 10px 0;
+
+        font: 400 1.8rem/1 "LibelSuitRg", Arial, sans-serif;
+        text-transform: uppercase;
+        cursor: pointer;
+        text-decoration: none;
+        color: #000000;
+
+        &:hover {
+            background: #dadada;
+        }
+    }
+    &__social {
+        padding-top: 110px;
+        font: 400 1.8rem/1 "LibelSuitRg", Arial, sans-serif;
+    }
+    &__social-title {
+        padding-bottom: 15px;
+    }
+    &__social-btn {
+
+    }
+    &__map {
+        width: 50%;
+        text-align: right;
+        font: 400 1.8em/1 "LibelSuitRg", Arial, sans-serif;
+    }
+
+}

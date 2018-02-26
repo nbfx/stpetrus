@@ -1,0 +1,38 @@
+.error {
+    display: block;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+
+    &__title {
+        display: block;
+        position: absolute;
+        //margin: 50% auto 0;
+        width: 165px;
+        height: 165px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #ffffff;
+
+        z-index: 99999;
+
+        text-align: center;
+
+        border: 15px solid transparent;
+        box-shadow: 0 0 0 1px #ffffff;
+        background-clip: content-box;
+
+
+        span {
+            display: inline-block;
+
+            padding-top: 20px;
+            font: 400 2.5rem/1.2 "LibelSuitRg", sans-serif;
+
+            &:lang(en){
+                padding-top: 35px;
+            }
+        }
+    }
+}

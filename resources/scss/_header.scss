@@ -1,0 +1,23 @@
+.header {
+    display: block;
+    position: fixed;
+    top: 0;
+    height: calc(100% - 140px);
+    width: calc(100% - 140px);
+    background: url("/img/main-bg.jpg") center top no-repeat;
+    background-size: cover;
+    margin: 70px 70px 0;
+    overflow: hidden;
+}
+.index {
+    .header {
+        position: fixed;
+        margin: 70px;
+    }
+}
+.bxslider {
+    li {
+        width: 100%;
+        height: 100%;
+    }
+}

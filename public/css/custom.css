@@ -1,0 +1,56 @@
+.hidden-icons {
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    display: none;
+}
+
+.hidden-icons-container {
+    position: relative;
+}
+
+.hidden-icons-container:hover .hidden-icons {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.margin-bottom-10 {
+    margin-bottom: 10px !important;
+}
+
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+}
+
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.nav-divider {
+    border-top: 1px solid #1a2226!important;
+    opacity: .5!important;
+    margin: 5px 0!important;
+}
+.html-code {
+    color: rgb(136, 18, 128);
+}
+.html-attribute-name {
+    color: rgb(153, 69, 0);
+}
+.html-attribute-value {
+    color: rgb(26, 26, 166);
+}
+
+.sidebar-menu li a {
+    padding: 8px 5px 8px 15px;
+}
