@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Meta
+ * Meta tags
  * @package App
  *
  * @property integer $id
