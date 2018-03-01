@@ -41,12 +41,16 @@
                                                                     @include('admin.parts.controlIcons', ['index' => $childItemIndex, 'items' => $child['children'], 'item' => $childItem, 'prefix' => 'drink_items'])
                                                                 </li>
                                                             @endforeach
+                                                        @else
+                                                            <h4 class="text-center">@lang('admin.noItemsFound')</h4>
                                                         @endif
                                                     </ul>
                                                     &nbsp;&nbsp;<a href="{{ route('drink_items_add', ['parent' => $child['id']]) }}" class="add-child">@lang('admin.add')</a>
                                                 </div>
                                             </div>
                                         @endforeach
+                                    @else
+                                        <h4 class="text-center">@lang('admin.noItemsFound')</h4>
                                     @endif
                                     </div>
                                 </div>

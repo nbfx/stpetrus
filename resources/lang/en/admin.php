@@ -152,7 +152,8 @@ return [
     ],
     'addNew' => 'Add new',
     'add' => 'Add',
-    'noItemsFound' => 'No items found.',
+    'empty' => 'Empty',
+    'noItemsFound' => 'No items found',
     'save' => 'Save',
 
 ];
