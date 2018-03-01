@@ -40,43 +40,11 @@
                                                     <textarea id="{{ $field }}" class="form-control" name="{{ $field }}"
                                                             {{ $params['required'] && $language['locale'] == config('app.fallback_locale') ? 'required=required' : '' }}
                                                             {{ !empty($params['helpText']) ? "aria-describedby={$field}Help" : '' }}>{{ $oldData[$field] ?? '' }}</textarea>
-                                                @elseif($params['type'] == 'wysiwyg')
-                                                    <textarea id="{{ $field }}" name="{{ $field }}"></textarea>
-                                                    <link href="{{ asset('/css/summernote.css') }}" rel="stylesheet">
-                                                    <script src="{{ asset('/js/summernote.min.js') }}"></script>
-                                                    <script>
-                                                        $(document).ready(function() {
-                                                            $('#{{ $field }}').summernote({
-                                                                height: 250,
-                                                                disableDragAndDrop: true,
-                                                                toolbar: [
-                                                                    // [groupName, [list of button]]
-                                                                    ['style', ['bold', 'italic', 'underline', 'clear']],
-                                                                    ['font', ['strikethrough'/*, 'superscript', 'subscript'*/]],
-                                                                    ['fontsize', ['fontsize']],
-                                                                    ['color', ['color']],
-                                                                    ['para', ['ul', 'ol', 'paragraph']],
-                                                                    ['height', ['height']],
-                                                                    ['insert', ['link', 'hr', 'video']],
-                                                                    ['mics', ['undo', 'redo']]
-                                                                ]
-                                                            });
-                                                            $('#{{ $field }}').summernote('code', '<?=$oldData[$field] ?? ''?>');
-                                                        });
-                                                    </script>
                                                 @elseif($params['type'] == 'input')
-                                                    @if($params['inputType'] == 'file')
-                                                        <img id="{{ "preview_$field" }}" src="{{ asset($oldData[$field]) }}" width="200px"/>
-                                                        <div class="fileUpload btn btn-primary">
-                                                            <span>@lang('admin.pages.fields.addImage')</span>
-                                                            <input id="{{ $field }}" type="file" class="upload" name="{{ $field }}" />
-                                                        </div>
-                                                    @else
-                                                        <input id="{{ $field }}" type="{{ $params['inputType'] }}"
+                                                    <input id="{{ $field }}" type="{{ $params['inputType'] }}"
                                                            class="form-control{{ $params['inputType'] == 'file' ? '-file' : '' }}"
                                                            name="{{ $field }}" value="{{ $oldData[$field] ?? '' }}"
                                                             {{ $params['required'] && $language['locale'] == config('app.fallback_locale') ? 'required=required' : '' }}>
-                                                        @endif
                                                 @endif
                                                 @if(!empty($params['helpText']))
                                                     <small id="{{ $field }}Help"
@@ -101,37 +69,17 @@
                                             <textarea id="{{ $field }}" class="form-control" name="{{ $field }}"
                                                     {{ $params['required'] ? 'required=required' : '' }}
                                                     {{ !empty($params['helpText']) ? "aria-describedby={$field}Help" : '' }}>{{ $oldData[$field] ?? '' }}</textarea>
-                                        @elseif($params['type'] == 'wysiwyg')
-                                            <div id="{{ $field }}"></div>
-                                            <link href="{{ asset('/css/summernote.css') }}" rel="stylesheet">
-                                            <script src="{{ asset('/js/summernote.min.js') }}"></script>
-                                            <script>
-                                                $(document).ready(function() {
-                                                    $('#{{ $field }}').summernote();
-                                                    $('#{{ $field }}').summernote('insertText', '{{ $oldData[$field] ?? '' }}');
-                                                });
-                                            </script>
                                         @elseif($params['type'] == 'input')
                                             @if($params['inputType'] == 'file')
                                                 <img id="{{ "preview_$field" }}" src="{{ asset($oldData[$field]) }}" width="200px"/>
                                                 <div class="fileUpload btn btn-primary">
                                                     <span>@lang('admin.pages.fields.addImage')</span>
-                                                    <input id="{{ $field }}" type="file" class="upload" value="{{ $oldData[$field] }}" name="{{ $field }}" />
+                                                    <input id="{{ $field }}" type="file" class="upload" name="{{ $field }}" />
                                                 </div>
-                                            @elseif($params['inputType'] == 'dateTimePicker')
-                                                <input id="{{ $field }}" type="text" class="form-control" name="{{ $field }}"
-                                                        {{ $params['required'] ? 'required=required' : '' }} value="{{ $oldData[$field] ?? '' }}">
-                                                <link href="{{ asset('/css/jquery.datetimepicker.min.css') }}" rel="stylesheet">
-                                                <script src="{{ asset('/js/jquery.datetimepicker.full.min.js') }}"></script>
-                                                <script type="text/javascript">
-                                                    $.datetimepicker.setLocale('{{ config('app.locale') }}');
-                                                    $('#{{ $field }}').datetimepicker();
-                                                </script>
                                             @else
                                                 <input id="{{ $field }}" type="{{ $params['inputType'] }}"
                                                        class="{{ $params['inputType'] == 'checkbox' ? '' : 'form-control' }}"
-                                                       name="{{ $field }}" value="{{ $oldData[$field] ?? '' }}"
-                                                        {{ $params['inputType'] == 'checkbox' && $oldData[$field] ? 'checked=checked' : '' }}
+                                                       name="{{ $field }}" {{ $oldData[$field] ? 'value='.$oldData[$field].'' : '' }}
                                                         {{ $params['required'] ? 'required=required' : '' }}>
                                             @endif
                                         @endif
@@ -147,29 +95,21 @@
                             @endif
                         @endforeach
 
-                        @if($isOrderable)
-                            <input type="hidden" value="{{ $oldData['order'] }}" name="order">
-                        @endif
+                        <input type="hidden" value="{{ $oldData['order'] }}" name="order">
 
                         @if($isParentable)
                             <? // Convert array to collection
-                            $items = collect($items) ?>
+//                             // drink_groups
+                            $items = collect($items); ?>
                             <div class="form-group{{ $errors->has('parent') ? ' has-error' : '' }}">
                                 <label for="parent" class="col-md-2 control-label">@lang('admin.pages.fields.parent')</label>
                                 <div class="col-md-10 margin-bottom-10">
                                     <select id="parent" class="form-control selectpicker" name="parent">
                                         @if($items->count())
-                                            <option value="">{{ strtolower(__('admin.pages.fields.none')) }}</option>
-                                            @if($items->count() > 1)
-                                                <? $parent = request()->get('parent') ? request()->get('parent') : ($oldData['parent'] ?? false) ?>
-                                                @foreach($items as $index => $item)
-                                                    @if(empty($item['parent']))
-                                                        <option {{ $parent && $item['id'] == $parent ? 'selected="selected"' : '' }} value="{{ $item['id'] }}">{{ $item['title'] }}</option>
-                                                    @endif
-                                                @endforeach
-                                            @endif
-                                        @else
-                                            <option value="">{{ strtolower(__('admin.pages.fields.none')) }}</option>
+                                            <? $parent = request()->get('parent') ? request()->get('parent') : ($oldData['parent'] ?? false) ?>
+                                            @foreach($items as $index => $item)
+                                                <option {{ $parent && $item['id'] == $parent ? 'selected="selected"' : '' }} value="{{ $item['id'] }}">{{ $item['title'] }}</option>
+                                            @endforeach
                                         @endif
                                     </select>
                                     @if ($errors->has('order'))
@@ -192,6 +132,8 @@
         </div><!-- /.col -->
     </div><!-- /.row -->
     <script>
+        var token = '{{ csrf_token() }}';
+
         function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
@@ -201,8 +143,6 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
-
-        var token = '{{ csrf_token() }}';
 
         $("input[type=file]").change(function(){
             readURL(this);
@@ -217,7 +157,7 @@
             var fieldsToValidate = <?='["'.implode('", "', $fieldsToValidate).'"]'?>;
             $.each(fieldsToValidate, function( index, value ) {
                 var field = $('[name='+value+']');
-                form_data[value] = field.attr('type') == 'file' ? field.attr('value') : field.val();
+                form_data[value] = value != 'image' && value != 'preview_image' ? field.val() : (field[0].files ? (field[0].files[0] == undefined ? '' : field[0].files[0].name) : '');
             });
             $.ajax({
                 type: "POST",

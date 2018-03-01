@@ -12,5 +12,8 @@ return [
         \App\Place::class,
         \App\Teammate::class,
         \App\Event::class,
+        \App\Drink::class,
+        \App\DrinkGroup::class,
+        \App\DrinkItem::class,
     ],
 ];

@@ -26,6 +26,7 @@
             <li class="{{ isActive('histories_list') }}"><a href="{{ route('histories_list') }}"><i class="fa fa-history" aria-hidden="true"></i>{{ trans('admin.sidebar.histories') }}</a></li>
             <li class="{{ isActive('places_list') }}"><a href="{{ route('places_list') }}"><i class="fa fa-globe" aria-hidden="true"></i>{{ trans('admin.sidebar.places') }}</a></li>
             <li class="{{ isActive('menu_groups_list') }}"><a href="{{ route('menu_groups_list') }}"><i class="fa fa-map-o" aria-hidden="true"></i>{{ trans('admin.sidebar.menuGroups') }}</a></li>
+            <li class="{{ isActive('drinks_list') }}"><a href="{{ route('drinks_list') }}"><i class="fa fa-glass" aria-hidden="true"></i>{{ trans('admin.sidebar.drinks') }}</a></li>
             <li class="{{ isActive('wine_groups_list') }}"><a href="{{ route('wine_groups_list') }}"><i class="fa fa-glass" aria-hidden="true"></i>{{ trans('admin.sidebar.wineGroups') }}</a></li>
             <li class="treeview {{ isActive('spirit_groups_list') || isActive('cocktail_groups_list') ? 'active' : '' }}">
                 <a href="#"><i class="fa fa-glass" aria-hidden="true"></i><span>{{ trans('admin.sidebar.drinks') }}</span> <i class="fa fa-angle-left pull-right"></i></a>

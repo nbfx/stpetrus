@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Language;
-use App\WineGroup;
-use App\WineItem as Model;
+use App\DrinkGroup;
+use App\DrinkItem as Model;
+use App\DrinkGroup as ParentModel;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
-class WineItemController extends AdminController
+class DrinkItemController extends AdminController
 {
     private $model;
 
@@ -16,9 +17,9 @@ class WineItemController extends AdminController
     {
         $this->model = new Model();
         $this->setModel($this->model)
-            ->setPrefix('wine_items')
-            ->setPageTitleAdd(trans('admin.pages.titles.add.wineItems'))
-            ->setPageTitleList(trans('admin.pages.titles.list.wineItems'))
+            ->setPrefix('drink_items')
+            ->setPageTitleAdd(trans('admin.pages.titles.add.drinkItems'))
+            ->setPageTitleList(trans('admin.pages.titles.list.drinkItems'))
             ->setIsOrderable(false)
             ->setIsParentable(true)
             ->setFields([
@@ -51,7 +52,7 @@ class WineItemController extends AdminController
 
     public function list()
     {
-        if(!WineGroup::all()->count()) {
+        if(!DrinkGroup::all()->count()) {
             return redirect(route('admin'));
         }
         $items = Model::with('group')->orderBy('order')->get()->toArray();
@@ -76,12 +77,24 @@ class WineItemController extends AdminController
      *
      * @return View
      */
-    public function add()
+    /*public function add()
     {
-        if(!WineGroup::all()->count()) {
-            return redirect(route('admin'));
+        if ($this->isParentable()) {
+            $items = ParentModel::orderBy('order')->get()->toArray();
+            foreach ($items as $index => $item) {
+                if (ParentModel::hasChildren($item['id'])) {
+                    $items[$index]['children'] = ParentModel::getChildren($item['id'])->toArray();
+                }
+            }
+        } else {
+            if ($this->isOrderable()) {
+                $items = forward_static_call([$this->getModel(), 'orderBy'], 'order')->get();
+            } else {
+                $items = $this->getModel()->get();
+            }
+
         }
-        $items = WineGroup::orderBy('order')->get()->toArray();
+        die(var_dump($items));
 
         $languages = $this->model->translatable ? Language::orderBy('order')->get()->toArray() : [];
         array_unshift($languages, ['title' => config('app.language'), 'locale' => config('app.fallback_locale')]);
@@ -97,6 +110,43 @@ class WineItemController extends AdminController
             'isParentable' => $this->isParentable(),
             'isRemovable' => $this->isRemovable(),
             'isEditable' => $this->isEditable(),
+            'mustHaveParent' => true,
+        ]);
+    }*/
+
+    public function add()
+    {
+        if ($this->isParentable()) {
+            $items = ParentModel::orderBy('order')->get()->toArray();
+            foreach ($items as $index => $item) {
+                if (ParentModel::hasChildren($item['id'])) {
+                    $items[$index]['children'] = ParentModel::getChildren($item['id'])->toArray();
+                }
+            }
+        } else {
+            if ($this->isOrderable()) {
+                $items = forward_static_call([$this->getModel(), 'orderBy'], 'order')->get();
+            } else {
+                $items = $this->getModel()->get();
+            }
+
+        }
+
+        $languages = $this->model->translatable ? Language::orderBy('order')->get()->toArray() : [];
+        array_unshift($languages, ['title' => config('app.language'), 'locale' => config('app.fallback_locale')]);
+
+        return view("admin.pages.add.drink_item", [
+            'pageTitle' => $this->getPageTitleAdd(),
+            'items' => $items,
+            'prefix' => $this->getPrefix(),
+            'languages' => $languages,
+            'fields' => $this->getFields(),
+            'translatableFields' => $this->model->translatable,
+            'isOrderable' => $this->isOrderable(),
+            'isParentable' => $this->isParentable(),
+            'isRemovable' => $this->isRemovable(),
+            'isEditable' => $this->isEditable(),
+            'mustHaveParent' => true,
         ]);
     }
 
@@ -108,18 +158,18 @@ class WineItemController extends AdminController
      */
     public function edit(int $id)
     {
-        if(!WineGroup::all()->count()) {
+        if(!DrinkGroup::all()->count()) {
             return redirect(route('admin'));
         }
         $this->setPageTitleEdit(trans('admin.pages.titles.edit.general'));
         $data = forward_static_call([$this->getModel(), 'findOrFail'], $id)->toArray();
 
-        $items = WineGroup::orderBy('order')->get()->toArray();
+        $items = DrinkGroup::orderBy('order')->get()->toArray();
 
         $languages = $this->model->translatable ? Language::orderBy('order')->get()->toArray() : [];
         array_unshift($languages, ['title' => config('app.language'), 'locale' => config('app.fallback_locale')]);
 
-        return view("admin.pages.edit.wine_item", [
+        return view("admin.pages.edit.drink_item", [
             'oldData' => collect($data),
             'pageTitle' => $this->getPageTitleEdit(),
             'items' => $items,
@@ -177,6 +227,6 @@ class WineItemController extends AdminController
             Model::create($data);
         }
 
-        return redirect(route("wine_groups_list"));
+        return redirect(route("drinks_list"));
     }
 }

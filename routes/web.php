@@ -117,6 +117,35 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::post('wine-items-toggleDisabled', 'WineItemController@toggleDisabled')->name('wine_items_toggleDisabled');
     Route::post('wine-items-remove', 'WineItemController@remove')->name('wine_items_remove');
 
+    /* drinks */
+    Route::get('drinks', 'DrinkController@list')->name('drinks_list');
+    Route::get('drinks-add', 'DrinkController@add')->name('drinks_add');
+    Route::get('drinks-edit/{id}', 'DrinkController@edit')->name('drinks_edit');
+    Route::post('drinks-validate', 'DrinkController@validateFields')->name('drinks_validate');
+    Route::post('drinks-save', 'DrinkController@save')->name('drinks_save');
+    Route::post('drinks-swap', 'DrinkController@swap')->name('drinks_swap');
+    Route::post('drinks-toggleDisabled', 'DrinkController@toggleDisabled')->name('drinks_toggleDisabled');
+    Route::post('drinks-remove', 'DrinkController@remove')->name('drinks_remove');
+
+    Route::get('drink-groups', 'DrinkGroupController@list')->name('drink_groups_list');
+    Route::get('drink-groups-add', 'DrinkGroupController@add')->name('drink_groups_add');
+    Route::get('drink-groups-edit/{id}', 'DrinkGroupController@edit')->name('drink_groups_edit');
+    Route::post('drink-groups-validate', 'DrinkGroupController@validateFields')->name('drink_groups_validate');
+    Route::post('drink-groups-save', 'DrinkGroupController@save')->name('drink_groups_save');
+    Route::post('drink-groups-swap', 'DrinkGroupController@swap')->name('drink_groups_swap');
+    Route::post('drink-groups-toggleDisabled', 'DrinkGroupController@toggleDisabled')->name('drink_groups_toggleDisabled');
+    Route::post('drink-groups-remove', 'DrinkGroupController@remove')->name('drink_groups_remove');
+
+    Route::get('drink-items', 'DrinkItemController@list')->name('drink_items_list');
+    Route::get('drink-items-add', 'DrinkItemController@add')->name('drink_items_add');
+    Route::get('drink-items-edit/{id}', 'DrinkItemController@edit')->name('drink_items_edit');
+    Route::post('drink-items-validate', 'DrinkItemController@validateFields')->name('drink_items_validate');
+    Route::post('drink-items-save', 'DrinkItemController@save')->name('drink_items_save');
+    Route::post('drink-items-swap', 'DrinkItemController@swap')->name('drink_items_swap');
+    Route::post('drink-items-toggleDisabled', 'DrinkItemController@toggleDisabled')->name('drink_items_toggleDisabled');
+    Route::post('drink-items-remove', 'DrinkItemController@remove')->name('drink_items_remove');
+
+    /* spirits */
     Route::get('spirit-groups', 'SpiritGroupController@list')->name('spirit_groups_list');
     Route::get('spirit-groups-add', 'SpiritGroupController@add')->name('spirit_groups_add');
     Route::get('spirit-groups-edit/{id}', 'SpiritGroupController@edit')->name('spirit_groups_edit');
