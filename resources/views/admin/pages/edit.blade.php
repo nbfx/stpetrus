@@ -159,7 +159,9 @@
                                 <div class="col-md-10 margin-bottom-10">
                                     <select id="parent" class="form-control selectpicker" name="parent">
                                         @if($items->count())
-                                            <option value="">{{ strtolower(__('admin.pages.fields.none')) }}</option>
+                                            @if(empty($mustHaveParent))
+                                                <option value="">{{ strtolower(__('admin.pages.fields.none')) }}</option>
+                                            @endif
                                             @if($items->count() > 1)
                                                 <? $parent = request()->get('parent') ? request()->get('parent') : ($oldData['parent'] ?? false) ?>
                                                 @foreach($items as $index => $item)
