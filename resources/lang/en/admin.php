@@ -96,6 +96,8 @@ return [
                 'slides' => 'New slide',
                 'meta' => 'New meta tag',
                 'drinks' => 'New drink category',
+                'drinkGroups' => 'New drink subcategory',
+                'drinkItems' => 'New drink item',
             ],
             'edit' => [
                 'general' => 'Edit',
