@@ -27,6 +27,7 @@ Route::get('/', function () {
 Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::get('/', 'MainMenuController@list')->name('admin');
 
+    /* main menu */
     Route::get('main-menu-list', 'MainMenuController@list')->name('main_menu_list');
     Route::get('main-menu-add', 'MainMenuController@add')->name('main_menu_add');
     Route::get('main-menu-edit/{id}', 'MainMenuController@edit')->name('main_menu_edit');
@@ -36,6 +37,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::post('main-menu-toggleDisabled', 'MainMenuController@toggleDisabled')->name('main_menu_toggleDisabled');
     Route::post('main-menu-remove', 'MainMenuController@remove')->name('main_menu_remove');
 
+    /* languages */
     Route::get('languages-list', 'LanguageController@list')->name('languages_list');
     Route::get('languages-add', 'LanguageController@add')->name('languages_add');
     Route::get('languages-edit/{id}', 'LanguageController@edit')->name('languages_edit');
@@ -45,6 +47,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::post('languages-toggleDisabled', 'LanguageController@toggleDisabled')->name('languages_toggleDisabled');
     Route::post('languages-remove', 'LanguageController@remove')->name('languages_remove');
 
+    /* dishes */
     Route::get('dishes-list', 'DishController@list')->name('dishes_list');
     Route::get('dishes-add', 'DishController@add')->name('dishes_add');
     Route::get('dishes-edit/{id}', 'DishController@edit')->name('dishes_edit');
@@ -54,6 +57,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::post('dishes-toggleDisabled', 'DishController@toggleDisabled')->name('dishes_toggleDisabled');
     Route::post('dishes-remove', 'DishController@remove')->name('dishes_remove');
 
+    /* teammates */
     Route::get('teammates-list', 'TeammateController@list')->name('teammates_list');
     Route::get('teammates-add', 'TeammateController@add')->name('teammates_add');
     Route::get('teammates-edit/{id}', 'TeammateController@edit')->name('teammates_edit');
@@ -63,6 +67,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::post('teammates-toggleDisabled', 'TeammateController@toggleDisabled')->name('teammates_toggleDisabled');
     Route::post('teammates-remove', 'TeammateController@remove')->name('teammates_remove');
 
+    /* histories */
     Route::get('histories-list', 'HistoryController@list')->name('histories_list');
     Route::get('histories-add', 'HistoryController@add')->name('histories_add');
     Route::get('histories-edit/{id}', 'HistoryController@edit')->name('histories_edit');
@@ -72,6 +77,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::post('histories-toggleDisabled', 'HistoryController@toggleDisabled')->name('histories_toggleDisabled');
     Route::post('histories-remove', 'HistoryController@remove')->name('histories_remove');
 
+    /* places */
     Route::get('places-list', 'PlaceController@list')->name('places_list');
     Route::get('places-add', 'PlaceController@add')->name('places_add');
     Route::get('places-edit/{id}', 'PlaceController@edit')->name('places_edit');
@@ -81,6 +87,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::post('places-toggleDisabled', 'PlaceController@toggleDisabled')->name('places_toggleDisabled');
     Route::post('places-remove', 'PlaceController@remove')->name('places_remove');
 
+    /* menu */
     Route::get('menu-groups', 'MenuGroupController@list')->name('menu_groups_list');
     Route::get('menu-groups-add', 'MenuGroupController@add')->name('menu_groups_add');
     Route::get('menu-groups-edit/{id}', 'MenuGroupController@edit')->name('menu_groups_edit');
@@ -99,6 +106,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::post('menu-items-toggleDisabled', 'MenuItemController@toggleDisabled')->name('menu_items_toggleDisabled');
     Route::post('menu-items-remove', 'MenuItemController@remove')->name('menu_items_remove');
 
+    /* wines */
     Route::get('wine-groups', 'WineGroupController@list')->name('wine_groups_list');
     Route::get('wine-groups-add', 'WineGroupController@add')->name('wine_groups_add');
     Route::get('wine-groups-edit/{id}', 'WineGroupController@edit')->name('wine_groups_edit');
@@ -145,43 +153,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::post('drink-items-toggleDisabled', 'DrinkItemController@toggleDisabled')->name('drink_items_toggleDisabled');
     Route::post('drink-items-remove', 'DrinkItemController@remove')->name('drink_items_remove');
 
-    /* spirits */
-    Route::get('spirit-groups', 'SpiritGroupController@list')->name('spirit_groups_list');
-    Route::get('spirit-groups-add', 'SpiritGroupController@add')->name('spirit_groups_add');
-    Route::get('spirit-groups-edit/{id}', 'SpiritGroupController@edit')->name('spirit_groups_edit');
-    Route::post('spirit-groups-validate', 'SpiritGroupController@validateFields')->name('spirit_groups_validate');
-    Route::post('spirit-groups-save', 'SpiritGroupController@save')->name('spirit_groups_save');
-    Route::post('spirit-groups-swap', 'SpiritGroupController@swap')->name('spirit_groups_swap');
-    Route::post('spirit-groups-toggleDisabled', 'SpiritGroupController@toggleDisabled')->name('spirit_groups_toggleDisabled');
-    Route::post('spirit-groups-remove', 'SpiritGroupController@remove')->name('spirit_groups_remove');
-
-    Route::get('spirit-items', 'SpiritItemController@list')->name('spirit_items_list');
-    Route::get('spirit-items-add', 'SpiritItemController@add')->name('spirit_items_add');
-    Route::get('spirit-items-edit/{id}', 'SpiritItemController@edit')->name('spirit_items_edit');
-    Route::post('spirit-items-validate', 'SpiritItemController@validateFields')->name('spirit_items_validate');
-    Route::post('spirit-items-save', 'SpiritItemController@save')->name('spirit_items_save');
-    Route::post('spirit-items-swap', 'SpiritItemController@swap')->name('spirit_items_swap');
-    Route::post('spirit-items-toggleDisabled', 'SpiritItemController@toggleDisabled')->name('spirit_items_toggleDisabled');
-    Route::post('spirit-items-remove', 'SpiritItemController@remove')->name('spirit_items_remove');
-
-    Route::get('cocktail-groups', 'CocktailGroupController@list')->name('cocktail_groups_list');
-    Route::get('cocktail-groups-add', 'CocktailGroupController@add')->name('cocktail_groups_add');
-    Route::get('cocktail-groups-edit/{id}', 'CocktailGroupController@edit')->name('cocktail_groups_edit');
-    Route::post('cocktail-groups-validate', 'CocktailGroupController@validateFields')->name('cocktail_groups_validate');
-    Route::post('cocktail-groups-save', 'CocktailGroupController@save')->name('cocktail_groups_save');
-    Route::post('cocktail-groups-swap', 'CocktailGroupController@swap')->name('cocktail_groups_swap');
-    Route::post('cocktail-groups-toggleDisabled', 'CocktailGroupController@toggleDisabled')->name('cocktail_groups_toggleDisabled');
-    Route::post('cocktail-groups-remove', 'CocktailGroupController@remove')->name('cocktail_groups_remove');
-
-    Route::get('cocktail-items', 'CocktailItemController@list')->name('cocktail_items_list');
-    Route::get('cocktail-items-add', 'CocktailItemController@add')->name('cocktail_items_add');
-    Route::get('cocktail-items-edit/{id}', 'CocktailItemController@edit')->name('cocktail_items_edit');
-    Route::post('cocktail-items-validate', 'CocktailItemController@validateFields')->name('cocktail_items_validate');
-    Route::post('cocktail-items-save', 'CocktailItemController@save')->name('cocktail_items_save');
-    Route::post('cocktail-items-swap', 'CocktailItemController@swap')->name('cocktail_items_swap');
-    Route::post('cocktail-items-toggleDisabled', 'CocktailItemController@toggleDisabled')->name('cocktail_items_toggleDisabled');
-    Route::post('cocktail-items-remove', 'CocktailItemController@remove')->name('cocktail_items_remove');
-
+    /* meta */
     Route::get('meta', 'MetaController@list')->name('meta_list');
     Route::get('meta-add', 'MetaController@add')->name('meta_add');
     Route::get('meta-edit/{id}', 'MetaController@edit')->name('meta_edit');
@@ -191,6 +163,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::post('meta-toggleDisabled', 'MetaController@toggleDisabled')->name('meta_toggleDisabled');
     Route::post('meta-validate', 'MetaController@validateFields')->name('meta_validate');
 
+    /* events */
     Route::get('events', 'EventController@list')->name('events_list');
     Route::get('events-add', 'EventController@add')->name('events_add');
     Route::get('events-edit/{id}', 'EventController@edit')->name('events_edit');
@@ -200,10 +173,12 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::post('events-toggleDisabled', 'EventController@toggleDisabled')->name('events_toggleDisabled');
     Route::post('events-remove', 'EventController@remove')->name('events_remove');
 
+    /* contracts */
     Route::get('contacts-edit', 'ContactController@edit')->name('contacts_edit');
     Route::post('contacts-save', 'ContactController@save')->name('contacts_save');
     Route::post('contacts-validate', 'ContactController@validateFields')->name('contacts_validate');
 
+    /* slider */
     Route::get('slider-edit', 'SliderController@edit')->name('slider_edit');
     Route::post('slider-save', 'SliderController@save')->name('slider_save');
     Route::post('slider-validate', 'SliderController@validateFields')->name('slider_validate');
@@ -215,6 +190,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::post('slides-toggleDisabled', 'SlideController@toggleDisabled')->name('slides_toggleDisabled');
     Route::post('slides-remove', 'SlideController@remove')->name('slides_remove');
 
+    /* images */
     Route::get('images/{directory?}', 'ImageController@list')->name('images_list');
     Route::post('images-remove', 'ImageController@remove')->name('images_remove');
 
