@@ -74,6 +74,7 @@ return [
                 'cocktailItems' => 'Cocktails group items list',
                 'images' => 'Images list',
                 'meta' => 'Meta tags',
+                'drinks' => 'Drinks',
             ],
             'add' => [
                 'usersMenu' => 'New menu item',
@@ -94,6 +95,7 @@ return [
                 'images' => 'New image',
                 'slides' => 'New slide',
                 'meta' => 'New meta tag',
+                'drinks' => 'New drink category',
             ],
             'edit' => [
                 'general' => 'Edit',
