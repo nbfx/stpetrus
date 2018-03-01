@@ -28,13 +28,13 @@
             <li class="{{ isActive('menu_groups_list') }}"><a href="{{ route('menu_groups_list') }}"><i class="fa fa-map-o" aria-hidden="true"></i>{{ trans('admin.sidebar.menuGroups') }}</a></li>
             <li class="{{ isActive('drinks_list') }}"><a href="{{ route('drinks_list') }}"><i class="fa fa-glass" aria-hidden="true"></i>{{ trans('admin.sidebar.drinks') }}</a></li>
             <li class="{{ isActive('wine_groups_list') }}"><a href="{{ route('wine_groups_list') }}"><i class="fa fa-glass" aria-hidden="true"></i>{{ trans('admin.sidebar.wineGroups') }}</a></li>
-            <li class="treeview {{ isActive('spirit_groups_list') || isActive('cocktail_groups_list') ? 'active' : '' }}">
+            {{--<li class="treeview {{ isActive('spirit_groups_list') || isActive('cocktail_groups_list') ? 'active' : '' }}">
                 <a href="#"><i class="fa fa-glass" aria-hidden="true"></i><span>{{ trans('admin.sidebar.drinks') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <li class="{{ isActive('spirit_groups_list') }}"><a href="{{ route('spirit_groups_list') }}">{{ trans('admin.sidebar.spiritGroups') }}</a></li>
                     <li class="{{ isActive('cocktail_groups_list') }}"><a href="{{ route('cocktail_groups_list') }}">{{ trans('admin.sidebar.cocktailGroups') }}</a></li>
                 </ul>
-            </li>
+            </li>--}}
             <li class="{{ isActive('events_list') }}"><a href="{{ route('events_list') }}"><i class="fa fa-calendar" aria-hidden="true"></i>{{ trans('admin.sidebar.events') }}</a></li>
             {{--<li class="treeview {{ isActive('menu_groups_list') }} {{ isActive('menu_items_list') }}">
                 <a href="#"><i class="fa fa-map-o" aria-hidden="true"></i><span>{{ trans('admin.sidebar.menu') }}</span><i class="fa fa-angle-left pull-right"></i></a>
