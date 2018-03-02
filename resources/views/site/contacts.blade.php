@@ -24,10 +24,9 @@
 
                     <div class="contacts__social">
                         <div class="contacts__social-title">@lang('site.socialTitle')</div>
-                        <div class="contacts__social-btn contacts__social-btn_fb"></div>
-                        <div class="contacts__social-btn contacts__social-btn_insta"></div>
-                        <a class="mainMenu__social-item mainMenu__social-item_fb" href="#" target="_blank"></a>
-                        <a class="mainMenu__social-item mainMenu__social-item_insta" href="#" target="_blank"></a>
+                        @foreach(\App\Social::whereDisabled('false')->orderBy('order')->get()->toArray() as $social)
+                            <a class="mainMenu__social-item" title="{{ $social['title'] }}" style="background: url({{ asset($social['image']) }}) no-repeat;" href="{{ $social['url'] }}" target="_blank"></a>
+                        @endforeach
                     </div>
                 </div>
                 <div class="contacts__map"><?= $item['map_link'] ?></div>
