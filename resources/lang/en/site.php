@@ -44,8 +44,8 @@ return [
     'wineList' => [
         'title' => 'Wines list',
     ],
-    'spirits' => [
-        'title' => 'Spirits & Soft drinks',
+    'drinks' => [
+        'title' => 'Drinks',
     ],
     'cocktails' => [
         'title' => 'Cocktails menu',

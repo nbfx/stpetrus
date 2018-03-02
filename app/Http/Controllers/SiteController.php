@@ -6,6 +6,9 @@ use App\CocktailGroup;
 use App\CocktailItem;
 use App\Contact;
 use App\Dish;
+use App\Drink;
+use App\DrinkGroup;
+use App\DrinkItem;
 use App\Event;
 use App\History;
 use App\MainMenu;
@@ -235,6 +238,51 @@ class SiteController extends Controller
         $group['children'] = $this->getTranslated(WineItem::where('parent', $group['id'])->orderBy('order')->get());
         $this->data['items'] = $group;
         $this->data['headerImage'] = MainMenu::whereName('wine')->first()->image;
+
+        return $this->draw();
+    }
+
+    /**
+     * Drinks
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function drinks()
+    {
+        $this->template = self::PREFIX . '.' . __FUNCTION__;
+        $this->data['items'] = $this->getTranslated(Drink::orderBy('order')->get());
+
+        return $this->draw();
+    }
+
+    public function drinkGroup($group)
+    {
+        $name = $group;
+        $this->template = self::PREFIX . '.' . __FUNCTION__;
+        $group = $this->getTranslated(Drink::whereName($group)->get());
+        if (!$group) {
+            return redirect(route('drinks'));
+        }
+        $group = $group[0];
+        $group['children'] = $this->getTranslated(DrinkGroup::where('parent', $group['id'])->orderBy('order')->get());
+        $this->data['items'] = $group;
+        $this->data['headerImage'] = MainMenu::whereName('drinks')->first()->image;
+        $this->data['group'] = $name;
+
+        return $this->draw();
+    }
+
+    public function drinkSubgroup($group, $subgroup)
+    {
+        $this->template = self::PREFIX . '.' . __FUNCTION__;
+        $subgroup = $this->getTranslated(DrinkGroup::whereName($subgroup)->get());
+        if (!$subgroup) {
+            return redirect(route($group));
+        }
+        $subgroup = $subgroup[0];
+        $subgroup['children'] = $this->getTranslated(DrinkItem::where('parent', $subgroup['id'])->orderBy('order')->get());
+        $this->data['items'] = $subgroup;
+        $this->data['headerImage'] = MainMenu::whereName('drinks')->first()->image;
 
         return $this->draw();
     }

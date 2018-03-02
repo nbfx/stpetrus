@@ -218,8 +218,10 @@ Route::group(['middleware' => [ 'localeSessionRedirect', 'localizationRedirect',
     Route::get('/events', 'SiteController@events')->name('events');
     Route::get('/contacts', 'SiteController@contacts')->name('contacts');
     Route::get('/wine', 'SiteController@wine')->name('wine');
-    Route::get('/drinks', 'SiteController@drinks')->name('drinks');
     Route::get('/wine/{group?}', 'SiteController@wineGroup')->name('wineGroup');
+    Route::get('/drinks', 'SiteController@drinks')->name('drinks');
+    Route::get('/drinks/{group?}', 'SiteController@drinkGroup')->name('drinkGroup');
+    Route::get('/drinks/{group?}/{subgroup?}', 'SiteController@drinkSubgroup')->name('drinkSubgroup');
     Route::get('/spirit', 'SiteController@spirit')->name('spirit');
     Route::get('/spirit/{group?}', 'SiteController@spiritGroup')->name('spiritGroup');
     Route::get('/cocktail', 'SiteController@cocktail')->name('cocktail');

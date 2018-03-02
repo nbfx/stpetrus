@@ -44,8 +44,8 @@ return [
     'wineList' => [
         'title' => 'Вина',
     ],
-    'spirits' => [
-        'title' => 'Спиртные напитки',
+    'drinks' => [
+        'title' => 'Напитки',
     ],
     'cocktails' => [
         'title' => 'Меню коктейлей',

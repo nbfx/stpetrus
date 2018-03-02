@@ -129,20 +129,20 @@
 
                         @if($isOrderable)
                             <? // Convert array to collection
-                            $cItems = collect($items) ?>
+                            $items = collect($items) ?>
                             <div class="form-group{{ $errors->has('order') ? ' has-error' : '' }}">
                                 <label for="order" class="col-md-2 control-label">@lang('admin.pages.fields.order')</label>
                                 <div class="col-md-5 margin-bottom-10">
                                     <select id="order" class="form-control selectpicker" name="order">
-                                        @if($cItems->count() > 0)
+                                        @if($items->count() > 0)
                                             <option value="last" selected="selected">@lang('admin.pages.fields.last')</option>
                                         @endif
-                                        <option value="first" {{ $cItems->count() == 0 ? 'selected="selected"' : '' }}>@lang('admin.pages.fields.first')</option>
-                                        @if($cItems->count() > 1)
+                                        <option value="first" {{ $items->count() == 0 ? 'selected="selected"' : '' }}>@lang('admin.pages.fields.first')</option>
+                                        @if($items->count() > 1)
                                             <optgroup label="@lang('admin.pages.fields.after')">
-                                            @for($i = 0; $i < $cItems->count() - 1; $i++)
-                                                    <option value="after:{{ $cItems[$i]->order }}">
-                                                        {{ $cItems[$i]->{'title_'.app()->getLocale()} ?? $cItems[$i]->title }}
+                                            @for($i = 0; $i < $items->count() - 1; $i++)
+                                                    <option value="after:{{ $items[$i]['order'] }}">
+                                                        {{ $items[$i]['title_'.app()->getLocale()] ?? $items[$i]['title'] }}
                                                     </option>
                                                 @endfor
                                             </optgroup>
@@ -162,12 +162,12 @@
                                 <label for="parent" class="col-md-2 control-label">@lang('admin.pages.fields.parent')</label>
                                 <div class="col-md-10 margin-bottom-10">
                                     <select id="parent" class="form-control selectpicker" name="parent">
-                                        @if(!$mustHaveParent)
+                                        @if(empty($mustHaveParent))
                                             <option value="">{{ strtolower(trans('admin.pages.fields.none')) }}</option>
                                         @endif
                                         @if($items->count() > 1)
                                             <? $parent = request()->get('parent') ? request()->get('parent') : false ?>
-                                            @if(!$mustHaveParent)
+                                            @if(empty($mustHaveParent))
                                                 @foreach($items->where('parent', null) as $index => $item)
                                                     <option {{ $parent && $item['id'] == $parent ? 'selected="selected"' : '' }} value="{{ $item['id'] }}">{{ $item['title'] }}</option>
                                                 @endforeach

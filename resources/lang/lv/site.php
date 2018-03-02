@@ -42,8 +42,8 @@ return [
     'wineList' => [
         'title' => 'Vīnu karte',
     ],
-    'spirits' => [
-        'title' => 'Garšvielas',
+    'drinks' => [
+        'title' => 'Dzērieni',
     ],
     'cocktails' => [
         'title' => 'KOKTEIĻU KARTE',

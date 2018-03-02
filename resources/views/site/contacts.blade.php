@@ -24,7 +24,7 @@
 
                     <div class="contacts__social">
                         <div class="contacts__social-title">@lang('site.socialTitle')</div>
-                        @foreach(\App\Social::whereDisabled('false')->orderBy('order')->get()->toArray() as $social)
+                        @foreach(\App\Social::whereDisabled(false)->orderBy('order')->get()->toArray() as $social)
                             <a class="mainMenu__social-item" title="{{ $social['title'] }}" style="background: url({{ asset($social['image']) }}) no-repeat;" href="{{ $social['url'] }}" target="_blank"></a>
                         @endforeach
                     </div>

@@ -66,6 +66,22 @@ class MainMenuController extends AdminController
             'order' => $request->get('order') ?? $maxOrder + 1, // TODO: fix it
         ];
 
+        if (!$request->get('id'))
+            switch (true) {
+                case ($data['order'] == 'first'):
+                    if(Model::whereOrder(0)) Model::where('id', '>=', 0)->increment('order');
+                    $data['order'] = 0;
+                    break;
+                case (strpos($data['order'], 'after') !== false):
+                    $order = explode(':', $data['order'])[1] + 1;
+                    Model::where('order', '>=', $order)->increment('order');
+                    $data['order'] = $order;
+                    break;
+                case ($data['order'] == 'last'):
+                default:
+                    $data['order'] = Model::all()->max('order') + 1;
+            }
+
         if ($request->file('image')) {
             if ($itemId && $oldImage = Model::find($itemId)->image) {
                 if(file_exists($oldImage)) @unlink($oldImage);
