@@ -55,10 +55,10 @@ class SocialController extends AdminController
      * @param $id integer
      * @return View
      */
-    public function edit(int $id = null)
+    public function edit(int $id)
     {
         $this->setPageTitleEdit(trans('admin.pages.titles.edit.general'));
-        $data = Model::first()->toArray();
+        $data = Model::find($id)->toArray();
 
         $languages = $this->model->translatable ? Language::orderBy('order')->get()->toArray() : [];
         array_unshift($languages, ['title' => config('app.language'), 'locale' => config('app.fallback_locale')]);
