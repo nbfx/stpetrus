@@ -93,6 +93,12 @@
                                 </div>
                             @endif
                         @endforeach
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">@lang('admin.pages.fields.map')</label>
+                            <div class="col-md-10 margin-bottom-10">
+                                <?= $oldData['map_link'] ?>
+                            </div>
+                        </div>
 
                         <div class="form-group">
                             <div class="col-md-1">

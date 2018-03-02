@@ -57,6 +57,7 @@
             </li>--}}
             <li class="nav-divider"></li>
             <li class="{{ isActive('contacts_edit') }}"><a href="{{ route('contacts_edit') }}"><i class="fa fa-map-marker" aria-hidden="true"></i>{{ trans('admin.sidebar.contacts') }}</a></li>
+            <li class="{{ isActive('social_list') }}"><a href="{{ route('social_list') }}"><i class="fa fa-share-square" aria-hidden="true"></i>{{ trans('admin.sidebar.social') }}</a></li>
             <li class="nav-divider"></li>
             <li class="treeview {{ isActive('meta_list') || isActive('images_list') || isActive('languages_list') || isActive('slider_edit') ? 'active' : '' }}">
                 <a href="#"><i class="fa fa-cog" aria-hidden="true"></i><span>{{ trans('admin.sidebar.extra') }}</span> <i class="fa fa-angle-left pull-right"></i></a>

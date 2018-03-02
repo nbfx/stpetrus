@@ -173,10 +173,20 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::post('events-toggleDisabled', 'EventController@toggleDisabled')->name('events_toggleDisabled');
     Route::post('events-remove', 'EventController@remove')->name('events_remove');
 
-    /* contracts */
+    /* contacts */
     Route::get('contacts-edit', 'ContactController@edit')->name('contacts_edit');
     Route::post('contacts-save', 'ContactController@save')->name('contacts_save');
     Route::post('contacts-validate', 'ContactController@validateFields')->name('contacts_validate');
+
+    /* social */
+    Route::get('social', 'SocialController@list')->name('social_list');
+    Route::get('social-add', 'SocialController@add')->name('social_add');
+    Route::post('social-swap', 'SocialController@swap')->name('social_swap');
+    Route::post('social-remove', 'SocialController@remove')->name('social_remove');
+    Route::post('social-toggleDisabled', 'SocialController@toggleDisabled')->name('social_toggleDisabled');
+    Route::post('social-save', 'SocialController@save')->name('social_save');
+    Route::post('social-validate', 'SocialController@validateFields')->name('social_validate');
+    Route::get('social-edit/{id}', 'SocialController@edit')->name('social_edit');
 
     /* slider */
     Route::get('slider-edit', 'SliderController@edit')->name('slider_edit');
@@ -208,6 +218,7 @@ Route::group(['middleware' => [ 'localeSessionRedirect', 'localizationRedirect',
     Route::get('/events', 'SiteController@events')->name('events');
     Route::get('/contacts', 'SiteController@contacts')->name('contacts');
     Route::get('/wine', 'SiteController@wine')->name('wine');
+    Route::get('/drinks', 'SiteController@drinks')->name('drinks');
     Route::get('/wine/{group?}', 'SiteController@wineGroup')->name('wineGroup');
     Route::get('/spirit', 'SiteController@spirit')->name('spirit');
     Route::get('/spirit/{group?}', 'SiteController@spiritGroup')->name('spiritGroup');

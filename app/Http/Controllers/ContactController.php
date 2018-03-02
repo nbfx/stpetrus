@@ -38,12 +38,6 @@ class ContactController extends AdminController
                     'inputType' => 'text',
                     'required' => true,
                 ],
-                'social_networks' => [
-                    'label' => trans('admin.pages.fields.social_networks'),
-                    'type' => 'input',
-                    'inputType' => 'text',
-                    'required' => false,
-                ],
                 /*'map_lat' => [
                     'label' => trans('admin.pages.fields.map_lat'),
                     'type' => 'input',
@@ -111,10 +105,9 @@ class ContactController extends AdminController
             'phone' => $request->get('phone'),
             'address' => $request->get('address'),
             'email' => $request->get('email'),
-            'map_lat' => $request->get('map_lat'),
-            'map_lng' => $request->get('map_lng'),
+            /*'map_lat' => $request->get('map_lat'),
+            'map_lng' => $request->get('map_lng'),*/
             'map_link' => preg_replace("/(width|height)[ \=][\"\']([\d]+)[\"\']/i", '$1="100%"', $request->get('map_link')),
-            'social_networks' => $request->get('social_networks'),
             'description' => $request->get('description'),
         ];
 

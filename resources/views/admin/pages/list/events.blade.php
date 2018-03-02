@@ -7,7 +7,7 @@
                 <div id="{{ $language['locale'] }}" class="tab-pane fade {{ $language['locale'] == config('app.locale') || !in_array(config('app.locale'), collect($languages)->pluck('locale')->toArray()) && $language['locale'] == config('app.fallback_locale') ? 'in active' : '' }}">
                     @foreach($items as $index => $item)
                         <? $suffix = $language['locale'] == config('app.fallback_locale') ? '' : "_$language[locale]"; ?>
-                        <div class="panel panel-default hidden-icons-container" data-item-id="{{ $item['id'] }}">
+                        <div class="panel panel-info hidden-icons-container" data-item-id="{{ $item['id'] }}">
                             <div class="panel-heading">
                                 <h4>
                                     <span class="field-editable" data-field="title">{{ $item["title$suffix"] ?? "({$languages[0]['title']}) $item[title]" }}</span>
