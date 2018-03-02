@@ -37,6 +37,41 @@ class SlideController extends AdminController
             ]);
     }
 
+    public function add()
+    {
+        if ($this->isParentable()) {
+            $items = forward_static_call([$this->getModel(), 'whereParent'], null)->orderBy('order')->get()->toArray();
+            foreach ($items as $index => $item) {
+                if (forward_static_call([$this->getModel(), 'hasChildren'], $item['id'])) {
+                    $items[$index]['children'] = forward_static_call([$this->getModel(), 'getChildren'], $item['id'])->toArray();
+                }
+            }
+        } else {
+            if ($this->isOrderable()) {
+                $items = forward_static_call([$this->getModel(), 'orderBy'], 'order')->get();
+            } else {
+                $items = $this->getModel()->get();
+            }
+
+        }
+
+        $languages = $this->model->translatable ? Language::orderBy('order')->get()->toArray() : [];
+        array_unshift($languages, ['title' => config('app.language'), 'locale' => config('app.fallback_locale')]);
+
+        return view("admin.pages.add.slide", [
+            'pageTitle' => $this->getPageTitleAdd(),
+            'items' => $items,
+            'prefix' => $this->getPrefix(),
+            'languages' => $languages,
+            'fields' => $this->getFields(),
+            'translatableFields' => $this->model->translatable,
+            'isOrderable' => $this->isOrderable(),
+            'isParentable' => $this->isParentable(),
+            'isRemovable' => $this->isRemovable(),
+            'isEditable' => $this->isEditable(),
+        ]);
+    }
+
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
