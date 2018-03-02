@@ -1,7 +1,7 @@
 <?php $slider = App\Slider::first(); ?>
 <div class="header">
     <ul class="bxslider" style="height: 100% !important;">
-        @foreach(App\Slider::getChildren($slider->id) as $slide)
+        @foreach(App\Slider::getChildren($slider->id, true) as $slide)
             <li style="background:url('{{ asset($slide->image) }}'); background-size: cover;"></li>
         @endforeach
     </ul>

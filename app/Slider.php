@@ -39,11 +39,18 @@ class Slider extends Model
      * Get children of item
      *
      * @param int $id
+     * @param bool $onlyEnabled
      * @return null
      */
-    public static function getChildren(int $id)
+    public static function getChildren(int $id, bool $onlyEnabled = false)
     {
-        return self::hasChildren($id) ? Slide::whereSliderId($id)->orderBy('order')->get() : null;
+        if (self::hasChildren($id)) {
+            return $onlyEnabled ?
+                Slide::whereSliderId($id)->whereDisabled(false)->orderBy('order')->get() :
+                Slide::whereSliderId($id)->orderBy('order')->get();
+        }
+
+        return null;
     }
 
     /**
