@@ -39,6 +39,7 @@ return [
         'cocktail' => 'Коктейли',
         'contacts' => 'Контакты',
         'social' => 'Социальные сети',
+        'feedback' => 'Обратная связь',
         'images' => 'Изображения',
         'slider' => 'Слайдер',
         'meta' => 'Мета теги',
@@ -71,6 +72,13 @@ return [
                 'meta' => 'Мета теги',
                 'drinks' => 'Напитки',
                 'social' => 'Социальные сети',
+                'feedback' => [
+                    'new' => 'Новые',
+                    'seen' => 'Просмотренные',
+                    'accepted' => 'Одобренные',
+                    'denied' => 'Отклонённые',
+                    'all' => 'Обратная связь',
+                ],
             ],
             'add' => [
                 'usersMenu' => 'Новый пункт меню',
@@ -125,6 +133,8 @@ return [
             'content' => 'content',
             'url' => 'Url',
             'icon' => 'Иконка',
+            'first_name' => 'Имя',
+            'last_name' => 'Фамилия',
 
             'first' => 'Первый',
             'last' => 'Последний',
@@ -133,6 +143,10 @@ return [
             'none' => 'Нет',
             'disabled' => 'Отключено',
             'date' => 'Дата',
+            'reserve_date' => 'Резерв на',
+            'feedback_date' => 'Заявка подана',
+            'last_update' => 'Заявка изменена',
+            'feedback_description' => 'Дополнительно',
         ],
         'helpText' => [
             'jpgOrPng' => 'Выберите изображение в формате JPG или PNG.',
@@ -146,6 +160,9 @@ return [
         ],
         'validationMessages' => [
             'fieldRequired' => 'Это поле нужно заполнить',
+        ],
+        'text' => [
+            'people' => '{1} :amount человек|[2,4] :amount человека|[5,20] :amount человек|[22,24] :amount человека',
         ],
     ],
     'addNew' => 'Создать',

@@ -39,6 +39,7 @@ return [
         'cocktail' => 'Cocktails',
         'contacts' => 'Contacts',
         'social' => 'Social networks',
+        'feedback' => 'Feedback',
         'images' => 'Images',
         'slider' => 'Slider',
         'meta' => 'Meta tags',
@@ -77,6 +78,13 @@ return [
                 'meta' => 'Meta tags',
                 'drinks' => 'Drinks',
                 'social' => 'Social networks',
+                'feedback' => [
+                    'new' => 'New',
+                    'seen' => 'Seen',
+                    'accepted' => 'Accepted',
+                    'denied' => 'Denied',
+                    'all' => 'Feedback',
+                ],
             ],
             'add' => [
                 'usersMenu' => 'New menu item',
@@ -137,6 +145,8 @@ return [
             'content' => 'content',
             'url' => 'Url',
             'icon' => 'Icon',
+            'first_name' => 'Name',
+            'last_name' => 'Surname',
 
             'first' => 'First',
             'last' => 'Last',
@@ -145,6 +155,10 @@ return [
             'none' => 'None',
             'disabled' => 'Disabled',
             'date' => 'Date',
+            'reserve_date' => 'Reserved for',
+            'feedback_date' => 'Feedback date',
+            'last_update' => 'Last update',
+            'feedback_description' => 'Additional',
         ],
         'helpText' => [
             'jpgOrPng' => 'Choose JPG or PNG images.',
@@ -158,6 +172,9 @@ return [
         ],
         'validationMessages' => [
             'fieldRequired' => 'This field is required',
+        ],
+        'text' => [
+            'people' => '{1} :amount man|[2,*] :amount people',
         ],
     ],
     'addNew' => 'Add new',

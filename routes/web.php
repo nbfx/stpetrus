@@ -188,6 +188,9 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::post('social-validate', 'SocialController@validateFields')->name('social_validate');
     Route::get('social-edit/{id}', 'SocialController@edit')->name('social_edit');
 
+    /* feedback */
+    Route::get('feedback', 'FeedbackController@list')->name('feedback_list');
+
     /* slider */
     Route::get('slider-edit', 'SliderController@edit')->name('slider_edit');
     Route::post('slider-save', 'SliderController@save')->name('slider_save');
