@@ -43,14 +43,7 @@
                                                 </div>
                                             </div>
                                             <hr>
-                                            <div class="btn-group btn-group-justified">
-                                                <a href="#" class="btn btn-warning">Просмотрено</a>
-                                                <a href="#" class="btn btn-success">Одобрено</a>
-                                                <a href="#" class="btn btn-danger">Отклонено</a>
-                                            </div>
-                                            <div class="row">
-
-                                            </div>
+                                            @include('admin.parts.statusButtons', ['id' => $item['id'], 'currentStatus' => $item['status']])
                                         </div>
                                     </div>
                                 </div>
@@ -89,12 +82,20 @@
                                     </div>
                                     <div id="seen-{{ $item['id'] }}" class="panel-collapse collapse">
                                         <div class="panel-body">
-                                            <p><b>@lang('admin.pages.fields.phone'): </b>{{ $item['phone'] }}</p>
-                                            <p><b>@lang('admin.pages.fields.email'): </b><a href="mailto:{{$item['email']}}">{{ $item['email'] }}</a></p>
-                                            <p><b>@lang('admin.pages.fields.reserve_date'): </b>{{ date('H:i d.m.y', strtotime($item['date_time'])) }}</p>
-                                            <p><b>@lang('admin.pages.fields.feedback_date'): </b>{{ date('H:i d.m.y', strtotime($item['created_at'])) }}</p>
-                                            <p><b>@lang('admin.pages.fields.last_update'): </b>{{ date('H:i d.m.y', strtotime($item['updated_at'])) }}</p>
-                                            <p><b>@lang('admin.pages.fields.feedback_description'): </b>{{ $item['description'] }}</p>
+                                            <div class="row">
+                                                <div class="col-md-5">
+                                                    <p><b>@lang('admin.pages.fields.phone'): </b>{{ $item['phone'] }}</p>
+                                                    <p><b>@lang('admin.pages.fields.email'): </b><a href="mailto:{{$item['email']}}">{{ $item['email'] }}</a></p>
+                                                    <p><b>@lang('admin.pages.fields.reserve_date'): </b>{{ date('H:i d.m.y', strtotime($item['date_time'])) }}</p>
+                                                    <p><b>@lang('admin.pages.fields.feedback_date'): </b>{{ date('H:i d.m.y', strtotime($item['created_at'])) }}</p>
+                                                    <p><b>@lang('admin.pages.fields.last_update'): </b>{{ date('H:i d.m.y', strtotime($item['updated_at'])) }}</p>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <p><b>@lang('admin.pages.fields.feedback_description'): </b>{{ $item['description'] }}</p>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            @include('admin.parts.statusButtons', ['id' => $item['id'], 'currentStatus' => $item['status']])
                                         </div>
                                     </div>
                                 </div>
@@ -135,12 +136,20 @@
                                     </div>
                                     <div id="accepted-{{ $item['id'] }}" class="panel-collapse collapse">
                                         <div class="panel-body">
-                                            <p><b>@lang('admin.pages.fields.phone'): </b>{{ $item['phone'] }}</p>
-                                            <p><b>@lang('admin.pages.fields.email'): </b><a href="mailto:{{$item['email']}}">{{ $item['email'] }}</a></p>
-                                            <p><b>@lang('admin.pages.fields.reserve_date'): </b>{{ date('H:i d.m.y', strtotime($item['date_time'])) }}</p>
-                                            <p><b>@lang('admin.pages.fields.feedback_date'): </b>{{ date('H:i d.m.y', strtotime($item['created_at'])) }}</p>
-                                            <p><b>@lang('admin.pages.fields.last_update'): </b>{{ date('H:i d.m.y', strtotime($item['updated_at'])) }}</p>
-                                            <p><b>@lang('admin.pages.fields.feedback_description'): </b>{{ $item['description'] }}</p>
+                                            <div class="row">
+                                                <div class="col-md-5">
+                                                    <p><b>@lang('admin.pages.fields.phone'): </b>{{ $item['phone'] }}</p>
+                                                    <p><b>@lang('admin.pages.fields.email'): </b><a href="mailto:{{$item['email']}}">{{ $item['email'] }}</a></p>
+                                                    <p><b>@lang('admin.pages.fields.reserve_date'): </b>{{ date('H:i d.m.y', strtotime($item['date_time'])) }}</p>
+                                                    <p><b>@lang('admin.pages.fields.feedback_date'): </b>{{ date('H:i d.m.y', strtotime($item['created_at'])) }}</p>
+                                                    <p><b>@lang('admin.pages.fields.last_update'): </b>{{ date('H:i d.m.y', strtotime($item['updated_at'])) }}</p>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <p><b>@lang('admin.pages.fields.feedback_description'): </b>{{ $item['description'] }}</p>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            @include('admin.parts.statusButtons', ['id' => $item['id'], 'currentStatus' => $item['status']])
                                         </div>
                                     </div>
                                 </div>
@@ -178,12 +187,20 @@
                                     </div>
                                     <div id="denied-{{ $item['id'] }}" class="panel-collapse collapse">
                                         <div class="panel-body">
-                                            <p><b>@lang('admin.pages.fields.phone'): </b>{{ $item['phone'] }}</p>
-                                            <p><b>@lang('admin.pages.fields.email'): </b><a href="mailto:{{$item['email']}}">{{ $item['email'] }}</a></p>
-                                            <p><b>@lang('admin.pages.fields.reserve_date'): </b>{{ date('H:i d.m.y', strtotime($item['date_time'])) }}</p>
-                                            <p><b>@lang('admin.pages.fields.feedback_date'): </b>{{ date('H:i d.m.y', strtotime($item['created_at'])) }}</p>
-                                            <p><b>@lang('admin.pages.fields.last_update'): </b>{{ date('H:i d.m.y', strtotime($item['updated_at'])) }}</p>
-                                            <p><b>@lang('admin.pages.fields.feedback_description'): </b>{{ $item['description'] }}</p>
+                                            <div class="row">
+                                                <div class="col-md-5">
+                                                    <p><b>@lang('admin.pages.fields.phone'): </b>{{ $item['phone'] }}</p>
+                                                    <p><b>@lang('admin.pages.fields.email'): </b><a href="mailto:{{$item['email']}}">{{ $item['email'] }}</a></p>
+                                                    <p><b>@lang('admin.pages.fields.reserve_date'): </b>{{ date('H:i d.m.y', strtotime($item['date_time'])) }}</p>
+                                                    <p><b>@lang('admin.pages.fields.feedback_date'): </b>{{ date('H:i d.m.y', strtotime($item['created_at'])) }}</p>
+                                                    <p><b>@lang('admin.pages.fields.last_update'): </b>{{ date('H:i d.m.y', strtotime($item['updated_at'])) }}</p>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <p><b>@lang('admin.pages.fields.feedback_description'): </b>{{ $item['description'] }}</p>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            @include('admin.parts.statusButtons', ['id' => $item['id'], 'currentStatus' => $item['status']])
                                         </div>
                                     </div>
                                 </div>
@@ -194,4 +211,20 @@
             </div><!-- /.box -->
         </div>
     </div>
+    <script type="text/javascript">
+        var token = '{{ csrf_token() }}';
+
+        function changeStatus(id, newStatus) {
+            $.ajax({
+                type: 'POST',
+                url: '{{ route('feedback_changeStatus') }}',
+                data: {_token: token, id: id, status: newStatus},
+                success: function (response) {
+                    if(JSON.parse(response).success !== true)
+                        alert('Changing status failed! ' + (response.message ? response.message : ''));
+                    else window.location.reload();
+                }
+            });
+        }
+    </script>
 @endsection

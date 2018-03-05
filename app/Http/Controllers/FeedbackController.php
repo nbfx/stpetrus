@@ -30,4 +30,12 @@ class FeedbackController extends AdminController
             'prefix' => $this->getPrefix(),
         ]);
     }
+
+    public function changeStatus(Request $request)
+    {
+        $id = $request->get('id');
+        $status = $request->get('status');
+
+        return $this->model->changeStatus($id, $status);
+    }
 }

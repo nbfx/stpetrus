@@ -32,7 +32,17 @@ class Feedback extends Model
 {
     protected $table = 'feedback';
 
+    protected $fillable = ['first_name', 'last_name', 'phone', 'email', 'description', 'people_amount', 'status'];
+
     public $translatable = [];
 
+    public function changeStatus($id, $status)
+    {
+        if ($item = self::find($id)) {
+            $item->update(['status' => $status]);
+            $answer = json_encode(['success' => true, 'status' => $item->status]);
+        }
 
+        return $answer ?? json_encode(['success' => false]);
+    }
 }
