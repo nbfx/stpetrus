@@ -12,7 +12,7 @@ html, body {
 .container {
     display: none;
     position: relative;
-    margin: 0 70px 70px;
+    //margin: 0 70px 70px;
     background: #ffffff;
 
     transition: all 500ms;
@@ -51,7 +51,7 @@ html, body {
         display: inline-block;
         position: absolute;
         top: 50%;
-        left: 50%;
+        left: calc(50% + 160px);
         width: 165px;
         height: 165px;
 

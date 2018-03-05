@@ -185,6 +185,8 @@
         width: 30px;
         height: 30px;
         margin-right: 15px;
+        -webkit-background-size: contain;
+        background-size: contain;
         
         &_fb {
             background: url("/img/social-fb.jpg") no-repeat;
