@@ -20,7 +20,7 @@
         <span class="mainMenu__social">
         <span class="mainMenu__social-title">@lang('site.socialTitle')</span>
             @foreach(\App\Social::whereDisabled('false')->orderBy('order')->get()->toArray() as $social)
-                <a class="mainMenu__social-item" title="{{ $social['title'] }}" style="background: url({{ asset($social['image']) }}) no-repeat;" href="{{ $social['url'] }}" target="_blank"></a>
+                <a class="mainMenu__social-item" title="{{ $social['title'] }}" style="background: url({{ asset($social['image']) }}) no-repeat; background-size: contain" href="{{ $social['url'] }}" target="_blank"></a>
             @endforeach
     </span>
     </div>
