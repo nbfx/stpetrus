@@ -41,6 +41,9 @@
                             <div class="contacts__field contacts__field_date">
                                 <input id="date" class="contacts__input" type="text" placeholder="Date">
                             </div>
+                            <div class="contacts__field contacts__field_num">
+                                <input id="num" class="contacts__input" type="text" placeholder="Number of persons">
+                            </div>
                             <div class="contacts__field contacts__field_text">
                                 <textarea class="contacts__textarea" name="" id="text" cols="30" rows="4"  placeholder="Enter Your Request"></textarea>
                             </div>
