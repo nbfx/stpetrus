@@ -287,6 +287,21 @@ class SiteController extends Controller
         return $this->draw();
     }
 
+    public function addFeedback(Request $request)
+    {
+        // TODO
+        /*$data = [
+            'first_name' => $request->get('first_name'),
+            'last_name' => $request->get('last_name'),
+            'phone' => $request->get('phone'),
+            'email' => $request->get('email'),
+            'description' => $request->get('description'),
+            'people_amount' => $request->get('people_amount'),
+        ];*/
+
+        $request->validate(['first_name' => 'required|max:255', 'last_name' => 'required']);
+    }
+
     public function spirit()
     {
         $this->template = self::PREFIX . '.' . __FUNCTION__;

@@ -12,6 +12,9 @@
         </span>
         @if($item)
             <div class="contacts__wrapper">
+                <form method="post" id="feedback_form" action="{{ route('feedback') }}">
+                    {{--TODO--}}
+                </form>
                 <div class="contacts__text">
                     <div class="contacts__title">St. Petrus</div>
                     <div class="contacts__address">{{ $item['address'] }}</div>
@@ -38,5 +41,21 @@
             var showOrderPopup = '<?=isset($_GET['order-table'])?>';
             if (showOrderPopup == true) openDBWindow($('#order-table').attr('href'));
         });
+
+        $('#feedback_form').on('submit', function (e) {
+            e.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: $(this).attr('action'),
+                data: $(this).serialize(),
+                dataType: 'json',
+                success: function(data){
+                    console.log(data);
+                },
+                error: function(data){
+
+                }
+            });
+        })
     </script>
 @endsection

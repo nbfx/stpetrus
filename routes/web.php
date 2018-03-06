@@ -221,6 +221,7 @@ Route::group(['middleware' => [ 'localeSessionRedirect', 'localizationRedirect',
     Route::get('/where', 'SiteController@where')->name('where');
     Route::get('/events', 'SiteController@events')->name('events');
     Route::get('/contacts', 'SiteController@contacts')->name('contacts');
+    Route::post('/contacts/feedback', 'SiteController@addFeedback')->name('feedback');
     Route::get('/wine', 'SiteController@wine')->name('wine');
     Route::get('/wine/{group?}', 'SiteController@wineGroup')->name('wineGroup');
     Route::get('/drinks', 'SiteController@drinks')->name('drinks');
