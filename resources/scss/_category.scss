@@ -88,6 +88,12 @@
         }
     }
 }
+.drinkSubgroup,
+.drinkGroup {
+    .container__main-title{
+        font-size: 1.8rem;
+    }
+}
 .drinkSubgroup {
     .category {
         flex-direction: column;
