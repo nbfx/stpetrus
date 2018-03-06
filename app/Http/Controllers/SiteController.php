@@ -24,6 +24,7 @@ use App\WineItem;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use Illuminate\Support\Facades\Validator;
 
 class SiteController extends Controller
 {
@@ -289,7 +290,19 @@ class SiteController extends Controller
 
     public function addFeedback(Request $request)
     {
-        // TODO
+
+        $validator = Validator::make($request->all(), [
+            'first_name' => 'max:255',
+            'last_name' => 'max:255',
+            'email' => 'email|max:255',
+//            'phone' =>
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->messages(), 200);
+        }
+        die(var_dump(123));
+
         /*$data = [
             'first_name' => $request->get('first_name'),
             'last_name' => $request->get('last_name'),
@@ -298,8 +311,6 @@ class SiteController extends Controller
             'description' => $request->get('description'),
             'people_amount' => $request->get('people_amount'),
         ];*/
-
-        $request->validate(['first_name' => 'required|max:255', 'last_name' => 'required']);
     }
 
     public function spirit()
