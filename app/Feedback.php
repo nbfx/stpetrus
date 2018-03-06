@@ -32,7 +32,7 @@ class Feedback extends Model
 {
     protected $table = 'feedback';
 
-    protected $fillable = ['first_name', 'last_name', 'phone', 'email', 'description', 'people_amount', 'status'];
+    protected $fillable = ['first_name', 'last_name', 'phone', 'email', 'date_time', 'description', 'people_amount', 'status'];
 
     public $translatable = [];
 

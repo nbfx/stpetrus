@@ -10,6 +10,7 @@ use App\Drink;
 use App\DrinkGroup;
 use App\DrinkItem;
 use App\Event;
+use App\Feedback;
 use App\History;
 use App\MainMenu;
 use App\MenuGroup;
@@ -292,16 +293,20 @@ class SiteController extends Controller
     {
 
         $validator = Validator::make($request->all(), [
-            'first_name' => 'max:255',
+            'first_name' => 'required|max:255',
             'last_name' => 'max:255',
-            'email' => 'email|max:255',
-//            'phone' =>
+            'phone' => 'required|max:255',
+            'email' => 'required|email|max:255',
+            'date_time' => 'date|after:today',
+            'description' => 'max:1000',
         ]);
 
         if ($validator->fails()) {
             return response()->json($validator->messages(), 200);
         }
-        die(var_dump(123));
+
+        Feedback::create($validator->getData());
+
 
         /*$data = [
             'first_name' => $request->get('first_name'),
