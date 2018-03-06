@@ -13,6 +13,7 @@ return [
         'title' => 'Contacts',
         'email' => 'Write us an email',
         'findUs' => 'How to find us',
+		'formtitle' => 'Contact Us',
     ],
     'events' => [
         'title' => 'Events',

@@ -36,6 +36,42 @@
             background: #dadada;
         }
     }
+    &__form-wrapper {
+        padding-top: 40px;
+    }
+    &__form-title {
+        font: 400 3rem/1.2 "LibelSuitRg", Arial, sans-serif;
+    }
+    &__field {
+        width: 295px;
+        border-bottom: 1px solid #000000;
+        padding-top: 20px;
+
+        input {
+            width: 100%;
+            font: 400 1.8rem/1.2 "LibelSuitRg", Arial, sans-serif;
+            border: none;
+        }
+        textarea {
+            font: 400 1.8rem/1.2 "LibelSuitRg", Arial, sans-serif;
+            width: 100%;
+            resize: none;
+            border: none;
+        }
+    }
+    &__submit {
+        width: 295px;
+        text-align: left;
+        padding-top: 20px;
+        input {
+            border: 1px solid #000000 !important;
+            background: #cccccc;
+            width: auto !important;
+            padding: 10px 35px;
+            font: 400 1.8rem/1.2 "LibelSuitRg", Arial, sans-serif;
+
+        }
+    }
     &__social {
         padding-top: 110px;
         font: 400 1.8rem/1 "LibelSuitRg", Arial, sans-serif;

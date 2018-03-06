@@ -6,7 +6,7 @@
     <div class="container">
         <div class="container__main-img" style="background: url({{ asset($activeMenu['image'] ?? '') }}) no-repeat; background-size: cover;">
             <div class="container__main-title js-scroll">@lang('site.events.title')</div>
-            <div class="container__scroll-btn js-scroll"></div>
+            {{--<div class="container__scroll-btn js-scroll"></div>--}}
         </div>
         <div class="events__wrapper">
             <div id="events__calendar" class="events__calendar"></div>

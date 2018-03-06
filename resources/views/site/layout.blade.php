@@ -31,7 +31,7 @@
             topMargin = parseInt($('.container').css('marginLeft'));
         
         $('.container').css('marginTop', $documentHeight).show();
-        $('.container__main-img').height($documentHeight - (topMargin*2));
+        $('.container__main-img').height($documentHeight/2.5);
 
         setTimeout(function () {
             $('.container').css('marginTop', topMargin);
@@ -43,11 +43,13 @@
 //                scrollTop: $this.parent().next(".container__title").offset().top - 30
 //            }, 1000);
 //        });
-        if ($(".container__title").length){
-            $('html, body').animate({
-                scrollTop: $(".container > .container__title").offset().top  / 2
-            }, 1000);
-        }
+//         if ($(".container__title").length){
+//             setTimeout(function () {
+//                 $('html, body').animate({
+//                     scrollTop: $(".container > .container__title").offset().top
+//                 }, 1000);
+//             }, 750)
+//         }
 
     });
 </script>

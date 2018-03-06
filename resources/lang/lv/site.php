@@ -11,6 +11,7 @@ return [
         'title' => 'Kontakti',
         'email' => 'Sazinieties ar mums pa e-pastu',
         'findUs' => 'Kā mūs atrast',
+		'formtitle' => 'Свяжитесь с нами',
     ],
     'events' => [
         'title' => 'Notikumi',

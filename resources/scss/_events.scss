@@ -55,6 +55,9 @@
         position: absolute;
         left: 102%;
         top: 90px;
+        .clndr {
+            font-family: 'LibelSuitRg', sans-serif;
+        }
 
         .clndr-controls {
             display: flex;

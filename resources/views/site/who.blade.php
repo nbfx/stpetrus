@@ -4,7 +4,7 @@
     <div class="container">
         <div id="team" class="container__main-img" style="background: url({{ asset($activeMenu['children'][0]['image'] ?? '') }}) center no-repeat; background-size: cover;">
             <div class="container__main-title js-scroll">{{ $activeMenu['children'][0]['title'] ?? '' }}</div>
-            <div class="container__scroll-btn js-scroll"></div>
+            {{--<div class="container__scroll-btn js-scroll"></div>--}}
         </div>
         <span class="container__title">
             @lang('site.who.ourTeam')
@@ -36,7 +36,7 @@
     {{--HISTORY--}}
     <div class="container__main-img" style="background: url({{ asset($activeMenu['children'][1]['image'] ?? '') }}) center no-repeat; background-size: cover;">
         <div class="container__main-title js-scroll">{{ $activeMenu['children'][1]['title'] ?? '' }}</div>
-        <div class="container__scroll-btn js-scroll"></div>
+        {{--<div class="container__scroll-btn js-scroll"></div>--}}
     </div>
     <span id="history" class="container__title"></span>
     <div class="listing">

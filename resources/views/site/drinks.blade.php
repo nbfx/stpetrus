@@ -4,7 +4,7 @@
     <div class="container">
         <div id="what" class="container__main-img " style="background: url({{ asset($activeMenu['image'] ?? '') }}) no-repeat; background-size: cover;background-position: center center;">
             <div class="container__main-title js-scroll">@lang('site.drinks.title')</div>
-            <div class="container__scroll-btn js-scroll"></div>
+            {{--<div class="container__scroll-btn js-scroll"></div>--}}
         </div>
         <span class="container__title">
             @lang('site.drinks.title')

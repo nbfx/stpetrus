@@ -4,7 +4,7 @@
     <div class="container">
         <div id="what" class="container__main-img " style="background: url({{ asset($activeMenu['image'] ?? '') }}) no-repeat; background-size: cover;">
             <div class="container__main-title js-scroll">@lang('site.contacts.title')</div>
-            <div class="container__scroll-btn js-scroll"></div>
+            {{--<div class="container__scroll-btn js-scroll"></div>--}}
         </div>
         <span class="container__title">
         </span>
@@ -12,9 +12,7 @@
         </span>
         @if($item)
             <div class="contacts__wrapper">
-                <form method="post" id="feedback_form" action="{{ route('feedback') }}">
-                    {{--TODO--}}
-                </form>
+
                 <div class="contacts__text">
                     <div class="contacts__title">St. Petrus</div>
                     <div class="contacts__address">{{ $item['address'] }}</div>
@@ -24,6 +22,24 @@
                     <a href="mailto:{{ $item['email'] }}" class="contacts__btn contacts__btn_emailus">@lang('site.contacts.email')</a>
                     <div class="contacts__btn contacts__btn_findus">@lang('site.contacts.findUs')</div>
 
+                    <div class="contacts__form-wrapper">
+                        <div class="contacts__form-title">@lang('site.contacts.formtitle')</div>
+                        <form method="post" id="feedback_form" action="{{ route('feedback') }}">
+                            {{--TODO--}}
+                            <div class="contacts__field">
+                                <input id="name" class="contacts__input" type="text" placeholder="Enter Your Name">
+                            </div>
+                            <div class="contacts__field">
+                                <input id="phone" class="contacts__input" type="text" placeholder="Enter Your Phone">
+                            </div>
+                            <div class="contacts__field">
+                                <textarea class="contacts__textarea" name="" id="text" cols="30" rows="4"  placeholder="Enter Your Request"></textarea>
+                            </div>
+                            <div class="contacts__submit">
+                                <input class="contacts__submit-btn" type="submit" value="Send">
+                            </div>
+                        </form>
+                    </div>
 
                     <div class="contacts__social">
                         <div class="contacts__social-title">@lang('site.socialTitle')</div>
@@ -32,7 +48,31 @@
                         @endforeach
                     </div>
                 </div>
-                <div class="contacts__map"><?= $item['map_link'] ?></div>
+
+
+                <div id="map" class="contacts__map"><?//= $item['map_link'] ?></div>
+                <script>
+                    function initMap(){
+                        var uluru = {lat: 56.9478799, lng: 24.1095129},
+                            grayStyles = [{
+                                featureType: "all",
+                                stylers: [
+                                    { saturation: -100 },
+                                    { lightness: 0 }
+                                ]
+                            }],
+                            map = new google.maps.Map(document.getElementById('map'), {
+                                zoom: 17,
+                                center: uluru,
+                                styles: grayStyles
+                            }),
+                            marker = new google.maps.Marker({
+                                position: uluru,
+                                map: map
+                            });
+                    }
+                </script>
+                <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqtEJkeFUcmP7nLeKvXDF42mdrWwHy7NI&callback=initMap"></script>
             </div>
         @endif
     </div>

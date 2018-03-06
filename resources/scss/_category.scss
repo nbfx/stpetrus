@@ -10,7 +10,7 @@
     &__wrapper {
         display: flex;
         justify-content: flex-end;
-        padding-left: 280px;
+        padding-left: 30%;
 
         text-align: right;
     }
@@ -88,8 +88,7 @@
         }
     }
 }
-.cocktailGroup,
-.spiritGroup {
+.drinkSubgroup {
     .category {
         flex-direction: column;
     }

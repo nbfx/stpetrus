@@ -4,11 +4,9 @@
     <div class="container">
         <div id="what" class="container__main-img " style="background: url({{ asset($items['image'] ?? '') }}) no-repeat; background-size: cover;background-position: center center;">
             <div class="container__main-title js-scroll">{{ $items['title'] }}</div>
-            <div class="container__scroll-btn js-scroll"></div>
+            {{--<div class="container__scroll-btn js-scroll"></div>--}}
         </div>
-        <span class="container__title">
-            {{ $items['title'] }}
-        </span>
+        <span class="container__title">{{ $items['title'] }}</span>
         <div class="category__wrapper">
             <div class="category">
                 @if($items['children'])
