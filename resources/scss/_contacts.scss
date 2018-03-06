@@ -37,13 +37,23 @@
         }
     }
     &__form-wrapper {
+        width: 350px;
         padding-top: 40px;
+
+        form {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: flex-start;
+        }
     }
     &__form-title {
+        width: 100%;
         font: 400 3rem/1.2 "LibelSuitRg", Arial, sans-serif;
     }
     &__field {
-        width: 295px;
+        width: 45%;
+        //display: inline-block;
         border-bottom: 1px solid #000000;
         padding-top: 20px;
 
@@ -51,12 +61,28 @@
             width: 100%;
             font: 400 1.8rem/1.2 "LibelSuitRg", Arial, sans-serif;
             border: none;
+            &:active,
+            &:focus {
+                border: none;
+                box-shadow: none;
+                outline: none;
+            }
         }
         textarea {
             font: 400 1.8rem/1.2 "LibelSuitRg", Arial, sans-serif;
             width: 100%;
             resize: none;
             border: none;
+            &:active,
+            &:focus {
+                border: none;
+                box-shadow: none;
+                outline: none;
+            }
+        }
+        &_date,
+        &_text {
+            width: 100%;
         }
     }
     &__submit {
@@ -84,6 +110,7 @@
     }
     &__map {
         width: 50%;
+        max-height: 500px;
         text-align: right;
         font: 400 1.8em/1 "LibelSuitRg", Arial, sans-serif;
     }

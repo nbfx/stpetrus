@@ -26,22 +26,22 @@
                         <div class="contacts__form-title">@lang('site.contacts.formtitle')</div>
                         <form method="post" id="feedback_form" action="{{ route('feedback') }}">
                             {{--TODO--}}
-                            <div class="contacts__field">
+                            <div class="contacts__field contacts__field_firstName">
                                 <input id="firstName" class="contacts__input" type="text" placeholder="First name">
                             </div>
-                            <div class="contacts__field">
+                            <div class="contacts__field contacts__field_lastName">
                                 <input id="lastName" class="contacts__input" type="text" placeholder="Lastname">
                             </div>
-                            <div class="contacts__field">
-                                <input id="date" class="contacts__input" type="text" placeholder="Date">
-                            </div>
-                            <div class="contacts__field">
+                            <div class="contacts__field contacts__field_phone">
                                 <input id="phone" class="contacts__input" type="text" placeholder="Phone">
                             </div>
-                            <div class="contacts__field">
+                            <div class="contacts__field contacts__field_email">
                                 <input id="email" class="contacts__input" type="text" placeholder="E-Mail">
                             </div>
-                            <div class="contacts__field">
+                            <div class="contacts__field contacts__field_date">
+                                <input id="date" class="contacts__input" type="text" placeholder="Date">
+                            </div>
+                            <div class="contacts__field contacts__field_text">
                                 <textarea class="contacts__textarea" name="" id="text" cols="30" rows="4"  placeholder="Enter Your Request"></textarea>
                             </div>
                             <div class="contacts__submit">
