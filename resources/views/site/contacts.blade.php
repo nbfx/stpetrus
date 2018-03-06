@@ -27,10 +27,19 @@
                         <form method="post" id="feedback_form" action="{{ route('feedback') }}">
                             {{--TODO--}}
                             <div class="contacts__field">
-                                <input id="name" class="contacts__input" type="text" placeholder="Enter Your Name">
+                                <input id="firstName" class="contacts__input" type="text" placeholder="First name">
                             </div>
                             <div class="contacts__field">
-                                <input id="phone" class="contacts__input" type="text" placeholder="Enter Your Phone">
+                                <input id="lastName" class="contacts__input" type="text" placeholder="Lastname">
+                            </div>
+                            <div class="contacts__field">
+                                <input id="date" class="contacts__input" type="text" placeholder="Date">
+                            </div>
+                            <div class="contacts__field">
+                                <input id="phone" class="contacts__input" type="text" placeholder="Phone">
+                            </div>
+                            <div class="contacts__field">
+                                <input id="email" class="contacts__input" type="text" placeholder="E-Mail">
                             </div>
                             <div class="contacts__field">
                                 <textarea class="contacts__textarea" name="" id="text" cols="30" rows="4"  placeholder="Enter Your Request"></textarea>
@@ -38,6 +47,7 @@
                             <div class="contacts__submit">
                                 <input class="contacts__submit-btn" type="submit" value="Send">
                             </div>
+                            <input type="hidden" value="{{ csrf_token() }}" name="_token">
                         </form>
                     </div>
 
