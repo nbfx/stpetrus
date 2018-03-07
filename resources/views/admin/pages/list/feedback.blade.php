@@ -21,7 +21,7 @@
                                         <h4 class="panel-title">
                                             <a data-toggle="collapse" data-parent="#accordion-new" href="#new-{{ $item['id'] }}">
                                                 <div class="pull-left">
-                                                    {{ "$item[first_name] $item[last_name], ".trans_choice('admin.pages.text.people', $item['people_amount'], ['amount' => $item['people_amount']])}}
+                                                    {{ "$item[first_name] $item[last_name]".($item['people_amount'] ? ", ".trans_choice('admin.pages.text.people', $item['people_amount'], ['amount' => $item['people_amount']]) : '')}}
                                                 </div>
                                                 <span class="pull-right label label-info">{{ date('H:i d.m.y', strtotime($item['date_time'])) }}</span>
                                                 <div class="clearfix"></div>
@@ -73,7 +73,7 @@
                                         <h4 class="panel-title">
                                             <a data-toggle="collapse" data-parent="#accordion-seen" href="#seen-{{ $item['id'] }}">
                                                 <div class="pull-left">
-                                                    {{ "$item[first_name] $item[last_name], ".trans_choice('admin.pages.text.people', $item['people_amount'], ['amount' => $item['people_amount']])}}
+                                                    {{ "$item[first_name] $item[last_name]".($item['people_amount'] ? ", ".trans_choice('admin.pages.text.people', $item['people_amount'], ['amount' => $item['people_amount']]) : '')}}
                                                 </div>
                                                 <span class="pull-right label label-info">{{ date('H:i d.m.y', strtotime($item['date_time'])) }}</span>
                                                 <div class="clearfix"></div>
@@ -127,7 +127,7 @@
                                         <h4 class="panel-title">
                                             <a data-toggle="collapse" data-parent="#accordion-accepted" href="#accepted-{{ $item['id'] }}">
                                                 <div class="pull-left">
-                                                    {{ "$item[first_name] $item[last_name], ".trans_choice('admin.pages.text.people', $item['people_amount'], ['amount' => $item['people_amount']])}}
+                                                    {{ "$item[first_name] $item[last_name]".($item['people_amount'] ? ", ".trans_choice('admin.pages.text.people', $item['people_amount'], ['amount' => $item['people_amount']]) : '')}}
                                                 </div>
                                                 <span class="pull-right label label-info">{{ date('H:i d.m.y', strtotime($item['date_time'])) }}</span>
                                                 <div class="clearfix"></div>
@@ -178,7 +178,7 @@
                                         <h4 class="panel-title">
                                             <a data-toggle="collapse" data-parent="#accordion-denied" href="#denied-{{ $item['id'] }}">
                                                 <div class="pull-left">
-                                                    {{ "$item[first_name] $item[last_name], ".trans_choice('admin.pages.text.people', $item['people_amount'], ['amount' => $item['people_amount']])}}
+                                                    {{ "$item[first_name] $item[last_name]".($item['people_amount'] ? ", ".trans_choice('admin.pages.text.people', $item['people_amount'], ['amount' => $item['people_amount']]) : '')}}
                                                 </div>
                                                 <span class="pull-right label label-info">{{ date('H:i d.m.y', strtotime($item['date_time'])) }}</span>
                                                 <div class="clearfix"></div>
