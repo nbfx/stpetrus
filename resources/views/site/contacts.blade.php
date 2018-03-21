@@ -47,6 +47,7 @@
                             <div class="contacts__field contacts__field_text">
                                 <textarea class="contacts__textarea" name="description" id="text" cols="30" rows="4"  placeholder="Enter Your Request"></textarea>
                             </div>
+                            <span id="response-message"></span>
                             <div class="contacts__submit">
                                 <input class="contacts__submit-btn" type="submit" value="Send">
                             </div>
@@ -89,10 +90,21 @@
             </div>
         @endif
     </div>
+
+    <script src="/js/jquery.datetimepicker.full.min.js"></script>
+    <link rel="stylesheet" href="/css/jquery.datetimepicker.min.css">
     <script>
         $(function () {
             var showOrderPopup = '<?=isset($_GET['order-table'])?>';
             if (showOrderPopup == true) openDBWindow($('#order-table').attr('href'));
+        });
+
+        $(function(){
+            $.datetimepicker.setLocale('{{ app()->getLocale() }}');
+            $('[name=date_time]').datetimepicker({
+                format: 'd.m.Y H:i',
+
+            });
         });
 
         $('#feedback_form').on('submit', function (e) {
@@ -103,10 +115,16 @@
                 data: $(this).serialize(),
                 dataType: 'json',
                 success: function(data){
-                    console.log(data);
+                    $('#response-message').text(data.message);
+                    $('.feedback-error').remove();
+                    if (data.errors !== undefined) {
+                        $.each(data.errors, function (name, item) {
+                            $('[name='+name+']').parent().append('<span class="feedback-error">'+item.join(' ')+'</span>');
+                        })
+                    }
                 },
                 error: function(data){
-
+                    $('#response-message').text('Internal error! Try again later!');
                 }
             });
         })

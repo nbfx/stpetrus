@@ -54,3 +54,7 @@
 .sidebar-menu li a {
     padding: 8px 5px 8px 15px;
 }
+
+.feedback-error {
+    color: maroon;
+}

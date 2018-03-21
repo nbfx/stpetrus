@@ -44,6 +44,7 @@
                                             </div>
                                             <hr>
                                             @include('admin.parts.statusButtons', ['id' => $item['id'], 'currentStatus' => $item['status']])
+                                            <a class="btn btn-default pull-right" onclick="remove('{{ $item['id'] }}', $(this).closest('.panel'))"><span class="glyphicon glyphicon-trash"></span></a>
                                         </div>
                                     </div>
                                 </div>
@@ -96,6 +97,7 @@
                                             </div>
                                             <hr>
                                             @include('admin.parts.statusButtons', ['id' => $item['id'], 'currentStatus' => $item['status']])
+                                            <a class="btn btn-default pull-right" onclick="remove('{{ $item['id'] }}', $(this).closest('.panel'))"><span class="glyphicon glyphicon-trash"></span></a>
                                         </div>
                                     </div>
                                 </div>
@@ -150,6 +152,7 @@
                                             </div>
                                             <hr>
                                             @include('admin.parts.statusButtons', ['id' => $item['id'], 'currentStatus' => $item['status']])
+                                            <a class="btn btn-default pull-right" onclick="remove('{{ $item['id'] }}', $(this).closest('.panel'))"><span class="glyphicon glyphicon-trash"></span></a>
                                         </div>
                                     </div>
                                 </div>
@@ -201,6 +204,7 @@
                                             </div>
                                             <hr>
                                             @include('admin.parts.statusButtons', ['id' => $item['id'], 'currentStatus' => $item['status']])
+                                            <a class="btn btn-default pull-right" onclick="remove('{{ $item['id'] }}', $(this).closest('.panel'))"><span class="glyphicon glyphicon-trash"></span></a>
                                         </div>
                                     </div>
                                 </div>
@@ -223,6 +227,20 @@
                     if(JSON.parse(response).success !== true)
                         alert('Changing status failed! ' + (response.message ? response.message : ''));
                     else window.location.reload();
+                }
+            });
+        }
+
+        function remove(id, item) {
+            $.ajax({
+                type: 'POST',
+                url: '{{ route('feedback_remove') }}',
+                data: {_token: token, id: id},
+                success: function (response) {
+                    response = JSON.parse(response);
+                    if(response.success !== undefined && response.success === true)
+                        item.fadeOut();
+                    else alert('Removing failed!');
                 }
             });
         }

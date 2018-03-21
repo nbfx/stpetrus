@@ -289,10 +289,18 @@ class SiteController extends Controller
         return $this->draw();
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function addFeedback(Request $request)
     {
-
-        $validator = Validator::make($request->all(), [
+        // TODO: add translations for response messages
+        $data = $request->all();
+        if (!empty($data['date_time'])) {
+            $data['date_time'] = date('Y-m-d H:i:s', strtotime($data['date_time']));
+        }
+        $validator = Validator::make($data, [
             'first_name' => 'required|max:255',
             'last_name' => 'max:255',
             'phone' => 'required|max:255',
@@ -302,20 +310,14 @@ class SiteController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->json($validator->messages(), 200);
+            return response()->json(['errors' => $validator->messages(), 'success' => false, 'message' => 'Please, fill in all required fields'], 200);
         }
 
-        Feedback::create($validator->getData());
-
-
-        /*$data = [
-            'first_name' => $request->get('first_name'),
-            'last_name' => $request->get('last_name'),
-            'phone' => $request->get('phone'),
-            'email' => $request->get('email'),
-            'description' => $request->get('description'),
-            'people_amount' => $request->get('people_amount'),
-        ];*/
+        if (Feedback::create($data)) {
+            return response()->json(['success' => true, 'message' => 'Feedback added!'], 200);
+        } else {
+            return response()->json(['success' => false, 'message' => 'Internal error!'], 200);
+        }
     }
 
     public function spirit()

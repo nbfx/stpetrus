@@ -190,7 +190,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
 
     /* feedback */
     Route::get('feedback', 'FeedbackController@list')->name('feedback_list');
-    Route::post('feedback_changeStatus', 'FeedbackController@changeStatus')->name('feedback_changeStatus');
+    Route::post('feedback-changeStatus', 'FeedbackController@changeStatus')->name('feedback_changeStatus');
+    Route::post('feedback-remove', 'FeedbackController@remove')->name('feedback_remove');
 
     /* slider */
     Route::get('slider-edit', 'SliderController@edit')->name('slider_edit');
