@@ -95,7 +95,7 @@
                     $('.feedback-error').remove();
                     if (data.errors !== undefined) {
                         $.each(data.errors, function (name, item) {
-                            $('[name='+name+']').parent().append('<span class="feedback-error">This field is required.</span>');
+                            $('[name='+name+']').parent().append('<span class="feedback-error">'+item[0]+'</span>');
                         })
                     } else {
                         $('#feedback_form').fadeOut(250, function () {

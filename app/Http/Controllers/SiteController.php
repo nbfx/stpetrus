@@ -300,23 +300,43 @@ class SiteController extends Controller
         if (!empty($data['date_time'])) {
             $data['date_time'] = date('Y-m-d H:i:s', strtotime($data['date_time']));
         }
-        $validator = Validator::make($data, [
+
+        $messages = [
+            'required' => trans('site.contacts.required_field'),
+            'email' => trans('site.contacts.incorrect_email'),
+            'date' => trans('site.contacts.incorrect_date'),
+            'after' => trans('site.contacts.date_too_early'),
+        ];
+
+        $rules = [
             'first_name' => 'required|max:255',
             'last_name' => 'max:255',
             'phone' => 'required|max:255',
             'email' => 'required|email|max:255',
             'date_time' => 'date|after:today',
             'description' => 'max:1000',
-        ]);
+        ];
+
+        $validator = Validator::make($data, $rules, $messages);
 
         if ($validator->fails()) {
-            return response()->json(['errors' => $validator->messages(), 'success' => false, 'message' => 'Please, fill in all required fields'], 200);
+            return response()->json([
+                'errors' => $validator->messages(),
+                'success' => false,
+                'message' => trans('site.contacts.fill_required_fields'),
+            ], 200);
         }
 
         if (Feedback::create($data)) {
-            return response()->json(['success' => true, 'message' => 'Your request has been sent. One of our managers will contact you soon!'], 200);
+            return response()->json([
+                'success' => true,
+                'message' => trans('site.contacts.request_sent'),
+            ], 200);
         } else {
-            return response()->json(['success' => false, 'message' => 'Something went wrong! Try again later.'], 200);
+            return response()->json([
+                'success' => false,
+                'message' => trans('site.contacts.unknown_error'),
+            ], 200);
         }
     }
 

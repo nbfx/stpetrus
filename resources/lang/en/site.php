@@ -14,6 +14,13 @@ return [
         'email' => 'Write us an email',
         'findUs' => 'How to find us',
 		'formtitle' => 'Contact Us',
+        'required_field' => 'This field is required',
+        'fill_required_fields' => 'Please, fill in all required fields',
+        'request_sent' => 'Your request has been sent. One of our managers will contact you soon!',
+        'unknown_error' => 'Something went wrong! Try again later.',
+        'incorrect_email' => 'The email must be a valid email address',
+        'incorrect_date' => 'Select the correct date',
+        'date_too_early' => 'Date should not be earlier than tomorrow'
     ],
     'events' => [
         'title' => 'Events',
