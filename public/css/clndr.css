@@ -1,5 +1,5 @@
 table.clndr-table {
-    font-size: 14px;
+    font-size: 18px;
 }
 
 table.clndr-table tr {
@@ -16,6 +16,6 @@ table.clndr-table td, table.clndr-table th {
 
 table.clndr-table tbody td:not(.empty):hover {
     cursor: pointer;
-    background-color: #000;
+    background-color: #ccc;
     color: #fff;
 }

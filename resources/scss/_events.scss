@@ -53,8 +53,13 @@
     &__calendar {
         display: inline-block;
         position: absolute;
-        left: 102%;
+        left: 110%;
         top: 90px;
+
+        color: #ffffff;
+        background: #000000;
+        padding: 15px;
+
         .clndr {
             font-family: 'LibelSuitRg', sans-serif;
         }

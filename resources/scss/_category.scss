@@ -1,5 +1,5 @@
 .category {
-    width: 100%;
+    width: calc(100% - 370px);
     display: flex;
     flex-wrap: wrap;
     number: 3;
@@ -10,7 +10,7 @@
     &__wrapper {
         display: flex;
         justify-content: flex-end;
-        padding-left: 30%;
+        //padding-left: 30%;
 
         text-align: right;
     }
@@ -62,10 +62,10 @@
 }
 .menuGroup {
     .category {
-        max-width: 960px;
+        //max-width: 960px;
         flex-direction: column;
         &__wrapper {
-            justify-content: flex-start;
+            justify-content: flex-end;
         }
     }
 }
