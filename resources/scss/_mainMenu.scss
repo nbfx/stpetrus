@@ -81,7 +81,7 @@
             }
         }
         &:hover {
-            color: $darckGrey;
+            color: $darkGrey;
         }
     }
     //SUB MENU ======================================================================================
@@ -150,7 +150,7 @@
     //BTN    ========================================================================================
     &__btn {
         display: block;
-        background: $darckGrey;
+        background: $darkGrey;
         margin-left: 20%;
         padding: 10px 0;
         margin-top: 20px;
@@ -165,7 +165,7 @@
 
         &:hover,
         &:focus {
-            background: lighten($darckGrey, 10%);
+            background: lighten($darkGrey, 10%);
         }
     }
 
@@ -177,7 +177,7 @@
     &__social-title {
         display: block;
         font: 400 1.8rem/1 "LibelSuitRg", Arial,sans-serif;
-        color: $darckGrey;
+        color: $darkGrey;
         padding: 24px 0 14px;
     }
     &__social-item {

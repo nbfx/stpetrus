@@ -314,9 +314,9 @@ class SiteController extends Controller
         }
 
         if (Feedback::create($data)) {
-            return response()->json(['success' => true, 'message' => 'Feedback added!'], 200);
+            return response()->json(['success' => true, 'message' => 'Your request has been sent. One of our managers will contact you soon!'], 200);
         } else {
-            return response()->json(['success' => false, 'message' => 'Internal error!'], 200);
+            return response()->json(['success' => false, 'message' => 'Something went wrong! Try again later.'], 200);
         }
     }
 

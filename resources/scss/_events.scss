@@ -57,7 +57,7 @@
         top: 90px;
 
         color: #ffffff;
-        background: #000000;
+        background: $darkGrey;
         padding: 15px;
 
         .clndr {
@@ -89,7 +89,7 @@
         }
         .day.event {
             cursor: pointer;
-            background-color: #000;
+            background-color: #707070;
             color: #fff;
         }
         .day.today:not(.event) {

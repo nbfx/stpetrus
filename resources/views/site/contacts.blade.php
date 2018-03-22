@@ -42,12 +42,13 @@
                                 <div class="contacts__field contacts__field_text">
                                     <textarea class="contacts__textarea" name="description" id="text" cols="30" rows="4"  placeholder="Enter Your Request"></textarea>
                                 </div>
-                                <span id="response-message"></span>
+
                                 <div class="contacts__submit">
                                     <input class="contacts__submit-btn" type="submit" value="Send">
                                 </div>
                                 <input type="hidden" value="{{ csrf_token() }}" name="_token">
                             </form>
+                            <span id="response-message" style="display: none;"></span>
                         </div>
 
                         <div class="contacts__social">
@@ -68,7 +69,7 @@
     </div>
 
     <script src="/js/jquery.datetimepicker.full.min.js"></script>
-    <link rel="stylesheet" href="/css/jquery.datetimepicker.min.css">
+
     <script>
         $(function () {
             var showOrderPopup = '<?=isset($_GET['order-table'])?>';
@@ -91,12 +92,15 @@
                 data: $(this).serialize(),
                 dataType: 'json',
                 success: function(data){
-                    $('#response-message').text(data.message);
                     $('.feedback-error').remove();
                     if (data.errors !== undefined) {
                         $.each(data.errors, function (name, item) {
-                            $('[name='+name+']').parent().append('<span class="feedback-error">'+item.join(' ')+'</span>');
+                            $('[name='+name+']').parent().append('<span class="feedback-error">This field is required.</span>');
                         })
+                    } else {
+                        $('#feedback_form').fadeOut(250, function () {
+                            $('#response-message').text(data.message).fadeIn(250);
+                        });
                     }
                 },
                 error: function(data){

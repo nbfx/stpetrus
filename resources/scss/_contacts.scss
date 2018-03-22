@@ -63,6 +63,7 @@
         font: 400 3rem/1.2 "LibelSuitRg", Arial, sans-serif;
     }
     &__field {
+        position: relative;
         width: 45%;
         //display: inline-block;
         border-bottom: 1px solid #000000;
@@ -94,6 +95,20 @@
         &_text {
             width: 100%;
         }
+    }
+    .feedback-error {
+        position: absolute;
+        right: 0;
+        bottom: 2px;
+        //transform: translate(0, -50%);
+        font: 400 1.2rem/1.2 "LibelSuitRg", Arial, sans-serif;
+        color: #ff0000;
+    }
+    #response-message {
+        display: block;
+        text-align: left;
+        padding: 40px 0;
+        font: 400 1.8rem/1.2 "LibelSuitRg", Arial, sans-serif;
     }
     &__submit {
         width: 295px;
@@ -127,7 +142,31 @@
         top: -25px;
 
         text-align: right;
-        font: 400 1.8em/1 "LibelSuitRg", Arial, sans-serif;
+        font: 400 1.8rem/1 "LibelSuitRg", Arial, sans-serif;
     }
-
+    .xdsoft_datetimepicker {
+        font: 400 1.8rem/1 "LibelSuitRg", Arial, sans-serif;
+        padding: 12px;
+    }
+    .xdsoft_datetimepicker .xdsoft_calendar td,
+    .xdsoft_datetimepicker .xdsoft_calendar th {
+        border: none;
+        border-bottom: 1px solid #000000;
+        background: #ffffff;
+        font-size: 1.8rem;
+    }
+    .xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_default,
+    .xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_current,
+    .xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box > div > div.xdsoft_current {
+        background: $darkGrey;
+    }
+    .xdsoft_time_box {
+        border: none;
+    }
+    .xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box > div > div {
+        font-size: 1.6rem;
+    }
+    .xdsoft_datetimepicker .xdsoft_label {
+        font-size: 1.8rem;
+    }
 }
