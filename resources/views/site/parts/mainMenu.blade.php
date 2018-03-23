@@ -13,7 +13,7 @@
             @endforeach
         </div>
 
-        <a class="mainMenu__btn" target="_blank" onclick="return openDBWindow(this.href);" href="http://stpetrus.b.dinnerbooking.com/onlinebooking/1202/2" title="Make a booking">@lang('site.order')</a>
+        <a class="mainMenu__btn" target="_blank" title="Make a booking">@lang('site.order')</a>
 
         @include('site.parts.languages')
 
@@ -42,6 +42,13 @@
                 </span>
             @endif
         @endforeach
+    </div>
+</div>
+
+<div class="orderFormPopUp">
+    <div class="orderFormPopUp__wrapper">
+        <div class="orderFormPopUp__title">Заказать столик<div class="orderFormPopUp__close"></div></div>
+        @include('site.parts.orderForm')
     </div>
 </div>
 
@@ -175,5 +182,12 @@
             });
             hideMenu();
         }
+        
+        $('.mainMenu__btn').on('click', function () {
+            $('.orderFormPopUp').fadeIn(250);
+        });
+        $('.orderFormPopUp__close').on('click', function () {
+            $('.orderFormPopUp').fadeOut(250);
+        });
     });
 </script>
