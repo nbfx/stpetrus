@@ -27,35 +27,5 @@
 @include('site.parts.header')
 
 @yield('container')
-
-<script>
-    $(document).ready(function () {
-        var $this =  $(this),
-            $documentHeight = $this.outerHeight(),
-            topMargin = parseInt($('.container').css('marginLeft'));
-        
-        $('.container').css('marginTop', $documentHeight).show();
-        $('.container__main-img').height($documentHeight/2.5);
-
-        setTimeout(function () {
-            $('.container').css('marginTop', topMargin);
-        }, 250);
-
-//        $('.js-scroll').on('click', function () {
-//            var $this = $(this);
-//            $('html, body').animate({
-//                scrollTop: $this.parent().next(".container__title").offset().top - 30
-//            }, 1000);
-//        });
-//         if ($(".container__title").length){
-//             setTimeout(function () {
-//                 $('html, body').animate({
-//                     scrollTop: $(".container > .container__title").offset().top
-//                 }, 1000);
-//             }, 750)
-//         }
-
-    });
-</script>
 </body>
 </html>

@@ -44,11 +44,6 @@
 
 
     <script>
-        $(function () {
-            var showOrderPopup = '<?=isset($_GET['order-table'])?>';
-            if (showOrderPopup == true) openDBWindow($('#order-table').attr('href'));
-        });
-
         function initMap(){
             var uluru = {lat: 56.9478799, lng: 24.1095129},
                 grayStyles = [{
