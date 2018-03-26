@@ -58,19 +58,20 @@
 
 <script>
     $(document).ready(function () {
-        var $menu = $('.mainMenu'),
+        var $window = $(window),
+            $menu = $('.mainMenu'),
             $menuItem = $('.mainMenu__item'),
             $subMenu = $('.mainMenu__submenu'),
             menuHeight = $menu.outerHeight(),
             menuWidth = $menu.outerWidth(),
             $menuWrapper = $('.mainMenu__wrapper'),
             $subMenuItem = $('.mainMenu__submenu-item '),
+            $sandwich = $('.sandwich'),
             windowWidth = $(document).width(),
             dataIdLast = 0,
+            menuPaddings = 0,
             setMenuWidth,
-            openSubMenu,
-            $window = $(window),
-            $sandwich = $('.sandwich');
+            openSubMenu;
 
         $menuWrapper.height(menuHeight);
 
@@ -90,7 +91,7 @@
         };
         openSubMenu = function () {
             if ($subMenu.width() == 0) {
-                $subMenu.css('width', windowWidth - menuWidth - 70);
+                $subMenu.css('width', windowWidth - menuWidth - menuPaddings);
 
             } else {
                 $subMenu.stop(true, false).css('width', 0);
@@ -188,6 +189,12 @@
         });
         $('.orderFormPopUp__close').on('click', function () {
             $('.orderFormPopUp').fadeOut(250);
+        });
+
+        $(document).on('click', '.orderFormPopUp', function(e){
+            if($(e.target).hasClass('orderFormPopUp')){
+                $('.orderFormPopUp').fadeOut(250);
+            }
         });
     });
 </script>

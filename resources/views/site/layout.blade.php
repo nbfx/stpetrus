@@ -10,6 +10,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="/js/jquery.bxslider.js"></script>
+    <script src="/js/jquery.datetimepicker.full.min.js"></script>
     <script src="/js/common.js"></script>
     <script type="text/javascript" src="http://js.i.dinnerbooking.eu/onlinebooking.js"></script>
 
