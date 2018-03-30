@@ -20,7 +20,8 @@ return [
         'unknown_error' => 'Something went wrong! Try again later.',
         'incorrect_email' => 'The email must be a valid email address',
         'incorrect_date' => 'Select the correct date',
-        'date_too_early' => 'Date should not be earlier than tomorrow'
+        'date_too_early' => 'Date should not be earlier than tomorrow',
+        'max_length' => 'Your message is too long',
     ],
     'events' => [
         'title' => 'Events',

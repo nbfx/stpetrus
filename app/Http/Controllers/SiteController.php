@@ -306,6 +306,7 @@ class SiteController extends Controller
             'email' => trans('site.contacts.incorrect_email'),
             'date' => trans('site.contacts.incorrect_date'),
             'after' => trans('site.contacts.date_too_early'),
+            'max' => trans('site.contacts.max_length'),
         ];
 
         $rules = [
